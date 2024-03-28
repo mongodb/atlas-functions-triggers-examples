@@ -3,10 +3,11 @@
 This is the main repo for all MongoDB App Services Function and Trigger examples.
 The examples in this repo are all tested to ensure that they work as expected.
 
-A GitHub Action uploads to the realm-template-apps S3 bucket. See
-[.github/workflows/zip-and-upload-to-s3.yml](.github/workflows/zip-and-upload-to-s3.yml).
+A GitHub Action uploads to the atlas-functions-triggers-examples S3 bucket.
+A push to the `development` branch uploads to the `development` directory,
+and a push to `main` uploads to the `production` directory.
 
-For bucket access, consult the Realm docs team.
+For bucket access, consult the Developer Docs team.
 
 IMPORTANT: The files currently located in this repository are placeholders
 to test the upload and directory structure.
