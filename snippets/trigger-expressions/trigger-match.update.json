@@ -1,0 +1,10 @@
+{
+  "operationType": "update",
+  "fullDocument": "$$ROOT",
+  "updateDescription": {
+    "updatedFields": "$$NEW",
+    "removedFields": {
+      "$setDifference": [{ "$objectKeys": "$$OLD" }, { "$objectKeys": "$$NEW" }]
+    }
+  }
+}

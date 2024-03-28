@@ -8,4 +8,7 @@ A GitHub Action uploads to the realm-template-apps S3 bucket. See
 
 For bucket access, consult the Realm docs team.
 
+IMPORTANT: The files currently located in this repository are placeholders
+to test the upload and directory structure.
+
 <!-- TODO: Add more details about the repo structure and its purpose -->

@@ -1,4 +1,4 @@
-name: Zip and Upload to s3
+name: Zip and Upload to S3 for Production
 
 on:
   push:
@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: mkdir zip
-      - run: zip -r zip/triggers-functions-examples.zip . -x ".git/*" ".github/*" ".DS_Store" "./zip/"
+      - run: zip -r zip/triggers-functions-examples.zip . -x ".DS_Store" ".git/*" ".github/*" "./zip/" "README.md" "test/*" "tools/*"
       - uses: shallwefootball/s3-upload-action@master
         with:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
           source_dir: ./zip
-          destination_dir: ""
+          destination_dir: "/v1/production"
