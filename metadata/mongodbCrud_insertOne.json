@@ -1,0 +1,5 @@
+{
+  "title": "Insert one document using MongoDB CRUD operations in Atlas Functions",
+  "description": "You can insert a single document by performing MongoDB CRUD operations using an Atlas Function. Pass the arguments to the Atlas Function, and use 'insertOne' in the Function context.",
+  "viewType": "withoutGuide"
+}

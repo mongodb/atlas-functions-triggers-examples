@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: mkdir zip
-      - run: zip -r zip/triggers-functions-examples.zip . -x ".DS_Store" ".git/*" ".github/*" "./zip/" "README.md" "test/*" "tools/*"
+      - run: zip -r zip/triggers-functions-examples.zip . -x ".DS_Store" ".git/*" ".github/*" ".gitignore" "./zip/" "README.md" "backend/*" "test/*" "tools/*"
       - uses: shallwefootball/s3-upload-action@master
         with:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
