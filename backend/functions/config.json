@@ -1,0 +1,11 @@
+[
+    {
+        "name": "mongodbCrud_insertOne",
+        "private": false
+    },
+    {
+        "name": "mongodbCrud_deleteOne",
+        "private": false,
+        "disable_arg_logs": true
+    }
+]
