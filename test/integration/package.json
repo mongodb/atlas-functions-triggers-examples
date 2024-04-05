@@ -15,6 +15,7 @@
         "@types/bson": "^4.0.2",
         "bson": "^4.7.2",
         "dotenv": "^16.4.5",
+        "mongodb": "^6.5.0",
         "realm": "^12.6.2"
     },
     "devDependencies": {
