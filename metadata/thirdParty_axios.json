@@ -1,0 +1,5 @@
+{
+  "title": "Using axios dependency",
+  "description": "Replace HTTP requests sent through an HTTP Service client with calls to an HTTP library using the axios npm dependency",
+  "viewType": "functionSnippet"
+}
