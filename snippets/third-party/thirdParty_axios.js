@@ -1,6 +1,6 @@
 exports = function () {
-  var axios = require("axios");
-  return axios.default
-    .get("https://www.example.com")
-    .then((response) => response.datas);
+  var axios = require("axios").default;
+  return axios
+    .get("https://api.github.com/users/octocat")
+    .then((response) => response.data.login);
 };
