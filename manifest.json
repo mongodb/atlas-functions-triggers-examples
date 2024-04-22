@@ -1,5 +1,5 @@
 {
-  "snippetExample": [
+  "snippetExamples": [
     {
       "metadata": "/metadata/thirdParty_twilio.json",
       "snippet": "/snippets/third-party/thirdParty_twilio.js"
