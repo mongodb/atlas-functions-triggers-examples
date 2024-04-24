@@ -1,0 +1,11 @@
+{
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "metadata": { "type": "string" },
+        "snippet": { "type": "string" }
+      },
+      "required": ["metadata", "snippet"]
+    }
+  }
