@@ -27,6 +27,9 @@
             },
             "required": ["title"],
             "additionalProperties": false
+          },
+          "docUrl": {
+            "type": "string"
           }
         }
       },
