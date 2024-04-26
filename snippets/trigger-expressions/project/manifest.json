@@ -1,0 +1,13 @@
+{
+  "category": "Trigger Project Expression",
+  "categoryId": "fsdagsdgsadg",
+  "viewType": "triggerProject",
+  "snippets": [
+    {
+      "id": 1,
+      "title": "Update match expression",
+      "snippet": "/update.json",
+      "description": "update expression snippet description"
+    }
+  ]
+}

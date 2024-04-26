@@ -1,0 +1,13 @@
+{
+  "category": "Third Party Integrations",
+  "categoryId": "3a7e7c81-6772-460f-90a5-376d49d22fcas",
+  "viewType": "functionSnippet",
+  "snippets": [
+    {
+      "id": 1,
+      "title": "Calling Twilio service via NPM dependency",
+      "snippet": "/twilio.js",
+      "description": "Calling the Twilio service with the official Twilio Node Helper Library. To authenticate Twilio requests, store your Account SID and Auth Token as values. You can then access them within functions and pass them to the SDK."
+    }
+  ]
+}

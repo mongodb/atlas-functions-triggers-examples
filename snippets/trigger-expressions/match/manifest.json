@@ -1,0 +1,13 @@
+{
+  "category": "Trigger Match Expression",
+  "categoryId": "fdsfegrteg",
+  "viewType": "triggerMatch",
+  "snippets": [
+    {
+      "id": 1,
+      "title": "Update match expression",
+      "snippet": "/update.json",
+      "description": "update expression snippet description"
+    }
+  ]
+}

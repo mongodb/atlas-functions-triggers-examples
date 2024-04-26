@@ -1,8 +1,17 @@
 {
   "snippetExamples": [
     {
-      "metadata": "/metadata/thirdParty_twilio.json",
-      "snippet": "/snippets/third-party/thirdParty_twilio.js"
+      "metadata": "/snippets/functions/third-party/manifest.json"
+    },
+    {
+      "metadata": "/snippets/functions/mongdbCRUD/manifest.json"
+    },
+    {
+      "metadata": "/snippets/trigger-expressions/match/manifest.json"
+    },
+    {
+      "metadata": "/snippets/trigger-expressions/match/manifest.json"
     }
-  ]
+  ],
+  "version": {}
 }
