@@ -14,7 +14,7 @@ For bucket access, consult the Developer Docs team.
 The Developer Docs team maintains these code snippets as tested examples.
 Adding a new snippet involves:
 
-1. Adding a Function or Trigger to the Atlas backend, which is currently in:
+1. Adding a Function or Trigger to the [Atlas backend](https://services.cloud.mongodb.com/groups/662aa718cfa1730aeb7d533d/apps/662ab06bb5d3bc8883125311/dashboard), which is currently in:
 
    **Org:** "Developer Docs"
    **Project:** "Code Snippets"
