@@ -35,3 +35,14 @@ jobs:
               echo $fileName
               cat $fileName | jq '.config.match'
           done
+
+      - name: Push generated webpage to another repository
+        uses: nkoppel/push-files-to-another-repository@1.1.0
+        env:
+            API_TOKEN_GITHUB: ${{ secrets.COPY_TO_EXAMPLES }}
+        with:
+            source-files: 'webpage/'
+            destination-username: 'mongocaleb'
+            destination-repository: 'mongocaleb.github.io'
+            destination-directory: 'projects/atlas-functions-triggers-examples/'
+            commit-email: 'mongocaleb@mongodb.com'
