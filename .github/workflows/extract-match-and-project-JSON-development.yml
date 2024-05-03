@@ -20,7 +20,7 @@ jobs:
 
       - name: Iterate files and parse them
         run: |
-          mkdir /temp
+          sudo mkdir /temp
           for fileName in $(ls -1 snippets/trigger-expressions/*.json); do
               echo $fileName | jq '.config.match' > /temp/$fileName
               : # cat $fileName | jq '.config.match'
