@@ -21,8 +21,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
-        working-directory: test/integration
+        working-directory: tests/integration
         run: npm install
       - name: Test the Examples
-        working-directory: test/integration
+        working-directory: tests/integration
         run: npm run test:ts
