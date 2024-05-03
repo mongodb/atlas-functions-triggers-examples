@@ -9,25 +9,7 @@ jobs:
     steps:
       - uses: mongocaleb/jq-action@v2.3.0
       - uses: actions/checkout@v4
-      - name: Finding JSON files and store to output
-        id: finding-files
-        run: |
-          : # cd snippets/trigger-expressions
-          : # echo "::set-output name=FILELIST::$(find snippets/trigger-expressions/*.json)"
-          echo "action_state=yellow" >> "$GITHUB_ENV"
-          : # echo "FILELIST=$((ls -1 snippets/trigger-expressions/*.json))" >> "$GITHUB_ENV"
 
-          {
-            echo 'FILELIST<<cht123'
-            ls -1 snippets/trigger-expressions/*.json
-            echo cht123
-          } >> "$GITHUB_ENV"
-
-          : # echo "FILELIST=$(files=(snippets/trigger-expressions/*.json))" >> "$GITHUB_ENV"
-
-          : # echo ${array[1]}
-          : # echo "FILELIST=${array[1]}  >> "$GITHUB_ENV"
-      
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -35,7 +17,6 @@ jobs:
           path: |
             dist
             !dist/**/*.md
-
 
       - name: Iterate files and parse them
         run: |
@@ -46,5 +27,3 @@ jobs:
           done
 
           ls -1 ./temp/
-
-      
