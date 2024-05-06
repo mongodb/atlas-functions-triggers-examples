@@ -35,4 +35,3 @@ jobs:
               echo $fileName
               cat $fileName | jq '.config.match'
           done
-

@@ -1,0 +1,26 @@
+{
+    "category": "MongoDB CRUD",
+    "categoryId": "3a7e7c81-6772-460f-90a5-376d49d227eb",
+    "viewType": "functionSnippet",
+    "snippets": [
+        {
+        "id": "3a7e7c81-6772-460f-90a5-376d49d227ec",
+        "title": "Delete one document using MongoDB CRUD operations in 
+    Atlas Functions",
+        "snippet": "/deleteOne.js",
+        "description": "You can delete a single document by performing 
+    MongoDB CRUD operations using an Atlas Function. Pass the
+    objectID as an argument to the Atlas Function, and use 
+    'deleteOne' in the Function context."
+        },
+        {
+        "id": "3a7e7c81-6772-460f-90a5-376d49d227ed",
+        "title": "Insert one document using MongoDB CRUD operations in 
+    Atlas Functions",
+        "snippet": "/insertOne.js",
+        "description": "You can insert a single document by performing 
+    MongoDB CRUD operations using an Atlas Function. Pass the 
+    arguments to the Atlas Function, and use 'insertOne' in the Function context."
+        }
+    ]
+}
