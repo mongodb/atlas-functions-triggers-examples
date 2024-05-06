@@ -14,16 +14,16 @@ For bucket access, consult the Developer Docs team.
 The Developer Docs team maintains these code snippets as tested examples.
 Adding a new snippet involves:
 
-1. Adding a Function or Trigger to the Atlas backend, which is currently in:
-
-   **Org:** "Developer Docs"
-   **Project:** "Code Snippets"
-   **App Services App:** "Atlas-Functions-Triggers"
-
-2. Adding a relevant test for the Function or Trigger to the test suite. Refer to the README in the `test/integration` directory for more details.
-3. Exporting or pulling the Atlas backend with your Function or Trigger, and adding the relevant file(s) to this repository's `backend`.
-4. Running the Bluehawk script in the `tools` directory to copy the files from the backend into the `snippets` files that get uploaded to S3.
-5. Adding a metadata file to the `metadata` directory with a title and other relevant details based on the type of snippet you're adding.
+1. Adding a Function or Trigger to the Atlas backend (ask Dev Docs for details 
+   and access).
+2. Adding a relevant test for the Function or Trigger to the test suite. Refer to 
+   the README in the `test/integration` directory for more details.
+3. Exporting or pulling the Atlas backend with your Function or Trigger, and adding 
+   the relevant file(s) to this repository's `backend`.
+4. Running the Bluehawk script in the `tools` directory to copy the files from the 
+   backend into the `snippets` files that get uploaded to S3.
+5. Adding a metadata file to the `metadata` directory with a title and other 
+   relevant details based on the type of snippet you're adding.
 
 Details about filenames and metadata schema will be added to this repository
 after the spec is finalized.
