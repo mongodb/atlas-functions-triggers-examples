@@ -20,9 +20,9 @@ jobs:
 
       - name: Update file with merge commit hash
         run: |
-          sed -i 's/<!-- Commit Hash: .* -->/<!-- Commit Hash: ${{ steps.get_merge_commit_hash.outputs.merge_commit_hash }} -->/' manifest.md
+          sed -i 's/<!-- Commit Hash: .* -->/<!-- Commit Hash: ${{ steps.get_merge_commit_hash.outputs.merge_commit_hash }} -->/' latestCommit.md
           git config --global user.email "caleb.thompson@mongodb.com"
           git config --global user.name "ActionBot"
-          git add manifest.json
+          git add latestCommit.md
           git commit --amend --no-edit
           git push --force
