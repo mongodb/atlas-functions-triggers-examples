@@ -1,0 +1,16 @@
+{
+    "snippetCategories": [
+        {
+        "metadata": "/snippets/functions/third-party/manifest.json"
+        },
+        {
+        "metadata": "/snippets/functions/mongodb-crud/manifest.json"
+        },
+        {
+        "metadata": "/snippets/triggers/match/manifest.json"
+        },
+        {
+        "metadata": "/snippets/triggers/project/manifest.json"
+        }
+    ]
+}

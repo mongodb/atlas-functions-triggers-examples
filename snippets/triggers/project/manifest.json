@@ -1,0 +1,13 @@
+{
+    "category": "ProjectTriggerExpressions",
+    "categoryId": "72e7780e-4382-4dc1-8f23-e7b9dbcf1f80",
+    "viewType": "triggerProject",
+    "snippets": [
+        {
+        "id": "72e7780e-4382-4dc1-8f23-e7b9dbcf1f81",
+        "title": "Match Expression for Updates",
+        "snippet": "/update.json",
+        "description": ""
+        }
+    ]
+}

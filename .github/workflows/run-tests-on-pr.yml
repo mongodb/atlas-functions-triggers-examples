@@ -1,0 +1,28 @@
+name: Atlas Functions and Triggers Example Tests
+
+on:
+  pull_request:
+    paths:
+      - "snippets/**"
+
+jobs:
+  build:
+    name: Run Function and Trigger Tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Dependencies
+        working-directory: tests/integration
+        run: npm install
+      - name: Test the Examples
+        working-directory: tests/integration
+        run: npm run test:ts

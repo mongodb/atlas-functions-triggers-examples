@@ -1,0 +1,23 @@
+name: Update Commit Hash
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  update_commit_hash:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get merge commit hash
+        run: echo "commit_hash=$(git show -s --format=%H)" >> "$GITHUB_ENV"
+      - name: Update file with merge commit hash
+        run: |
+          echo $commit_hash
+          echo $commit_hash > latestCommit.md
+          git config --global user.email "caleb.thompson@mongodb.com"
+          git config --global user.name "ActionBot"
+          git add latestCommit.md
+          git commit --amend --no-edit
+          git push --force

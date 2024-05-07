@@ -1,0 +1,13 @@
+{
+    "category": "MatchTriggerExpressions",
+    "categoryId": "ed4b3598-6800-413f-9158-d9b1b2a2a080",
+    "viewType": "triggerMatch",
+    "snippets": [
+        {
+        "id": "ed4b3598-6800-413f-9158-d9b1b2a2a081",
+        "title": "Match Expression for Updates",
+        "snippet": "/update.json",
+        "description": ""
+        }
+    ]
+}
