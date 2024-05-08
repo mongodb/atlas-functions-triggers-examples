@@ -2,25 +2,20 @@ name: Update Commit Hash
 
 on:
   pull_request:
-    types: [closed]
-    branches:
-      - development  # Adjust branch name as needed
+  workflow_dispatch:
 
 jobs:
   update_commit_hash:
+    permissions: write-all
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
+      - uses: actions/checkout@v2
       - name: Get merge commit hash
-        id: get_merge_commit_hash
-        run: echo "::set-output name=merge_commit_hash::$(git show -s --format=%H ${{ github.event.pull_request.merge_commit_sha }})"
-
+        run: echo "commit_hash=$(git show -s --format=%H)" >> "$GITHUB_ENV"
       - name: Update file with merge commit hash
         run: |
-          sed -i 's/<!-- Commit Hash: .* -->/<!-- Commit Hash: ${{ steps.get_merge_commit_hash.outputs.merge_commit_hash }} -->/' latestCommit.md
+          echo $commit_hash
+          echo $commit_hash > latestCommit.md
           git config --global user.email "caleb.thompson@mongodb.com"
           git config --global user.name "ActionBot"
           git add latestCommit.md
