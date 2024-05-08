@@ -1,4 +1,4 @@
-exports = async function(objectIdToDelete){
+exports = async function(storeId){
   // Find the name of the MongoDB service you want to use (see "Linked Data Sources" tab)
   var serviceName = "mongodb-atlas";
 
@@ -8,14 +8,23 @@ exports = async function(objectIdToDelete){
 
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
+
+  const query = {};
   
+  const update = {
+    "$set": {
+      "storeId": storeId,
+    }
+  };
+  
+  const options = { "upsert": false };
+
   try {
-    const query = { "_id": objectIdToDelete }
-    deleteResult = await collection.deleteOne(query);
-    return deleteResult["deletedCount"];
+    updateResult = await collection.updateOne(query, update, options);
+    return updateResult["updatedId"];
 
   } catch(err) {
-    console.log("Failed to delete item: ", err.message);
+    console.log("Failed to update item(s): ", err.message);
     return { error: err.message };
   }
 };

@@ -7,11 +7,10 @@
         "metadata": "/snippets/functions/mongodb-crud/manifest.json"
         },
         {
-        "metadata": "/snippets/trigger-expressions/match/manifest.json"
+        "metadata": "/snippets/triggers/match/manifest.json"
         },
         {
-        "metadata": "/snippets/trigger-expressions/project/manifest.json"
+        "metadata": "/snippets/triggers/project/manifest.json"
         }
-    ],
-    "version": {git-commit-hash}
+    ]
 }

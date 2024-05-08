@@ -9,22 +9,29 @@ exports = async function(args){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
-  var newItem = {
+  var newItem1 = {
     "saleDate": args.saleDate,
-    "items": args.items,
+    "items": ["chocolate", "roses"],
     "storeLocation": args.storeLocation,
-    "customer": args.customer,
-    "couponUsed": args.couponUsed,
-    "purchaseMethod": args.purchaseMethod
+    "customer": 987,
+    "couponUsed": false,
+    "purchaseMethod": "in-store"
+  };
+  var newItem2 = {
+    "saleDate": args.saleDate,
+    "items": ["phone"],
+    "storeLocation": args.storeLocation,
+    "customer": 123,
+    "couponUsed": true,
+    "purchaseMethod": "online"
   };
   
   try {
-    // Execute an InsertOne in MongoDB 
-    insertResult = await collection.insertOne(newItem);
+    insertResult = await collection.insertMany([newItem1, newItem2]);
     return insertResult["insertedId"];
 
   } catch(err) {
-    console.log("Failed to insert item: ", err.message);
+    console.log("Failed to insert item(s): ", err.message);
     return { error: err.message };
   }
 };
