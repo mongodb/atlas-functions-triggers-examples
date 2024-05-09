@@ -18,19 +18,19 @@
         {
             "id": "3a7e7c81-6772-460f-90a5-376d49d227e3",
             "title": "Find a Single Document",
-            "snippet": "/FindOne.js",
+            "snippet": "/Find.js",
             "description": "Find a single document by performing MongoDB CRUD operations using an Atlas Function by using 'findOne' in the Function context."
         },
         {
             "id": "3a7e7c81-6772-460f-90a5-376d49d227e4",
             "title": "Find Multiple Documents",
-            "snippet": "/Find.js",
+            "snippet": "/FindMany.js",
             "description": "Find multiple documents by performing MongoDB CRUD operations using an Atlas Function by using 'findMany' in the Function context."
         },
         {
             "id": "3a7e7c81-6772-460f-90a5-376d49d227e3",
             "title": "Insert a Single Document",
-            "snippet": "/InsertOne.js",
+            "snippet": "/Insert.js",
             "description": "Insert a single document by performing MongoDB CRUD operations using an Atlas Function by using 'insertOne' in the Function context."
         },
         {
@@ -48,7 +48,7 @@
         {
             "id": "3a7e7c81-6772-460f-90a5-376d49d227e3",
             "title": "Update a Single Document",
-            "snippet": "/UpdateOne.js",
+            "snippet": "/Update.js",
             "description": "Update a single document by performing MongoDB CRUD operations using an Atlas Function by using 'updateOne' in the Function context."
         },
         {
