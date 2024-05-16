@@ -1,0 +1,8 @@
+{
+  "operationType": {
+    "$numberInt": "1"
+  },
+  "updateDescription.updatedFields.FieldA": {
+    "$numberInt": "1"
+  }
+}
