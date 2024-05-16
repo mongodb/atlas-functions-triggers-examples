@@ -1,22 +1,19 @@
-exports = async function(productId){
-  // Find the name of the MongoDB service you want to use (see "Linked Data Sources" tab)
+exports = async function(saleId, projection={}){
   var serviceName = "mongodb-atlas";
-
-  // Update these to reflect your db/collection
   var dbName = "sample_supplies";
   var collName = "sales";
 
-  // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
-  
-  const query = { "productId": productId };
-  const projection = {
-   "title": 1,
-   "quantity": 1,
-  }
-
+  const query = { "_id": new BSON.ObjectId(saleId) };
+  // An example of the projection object that might be passed in:
+  /*const projection = {
+    _id:0,
+    storeLocation:1,
+    items: 1
+  }*/
   try {
     doc = await collection.findOne(query, projection);
+    console.log('found:', JSON.stringify(doc));
     return doc;
 
   } catch(err) {

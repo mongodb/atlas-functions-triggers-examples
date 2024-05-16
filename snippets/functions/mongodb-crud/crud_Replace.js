@@ -1,4 +1,6 @@
-exports = async function(productId){
+exports = async function(productId, replacement){
+  console.log(productId);
+  console.log(replacement);
   // Find the name of the MongoDB service you want to use (see "Linked Data Sources" tab)
   var serviceName = "mongodb-atlas";
 
@@ -9,15 +11,14 @@ exports = async function(productId){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
-  const query = { "productId": productId };
-  
-  const replacement = {
-      "name": "blocks",
-      "price": 20.99,
-      "category": "toys"
-  };
+  const query = { "_id": BSON.ObjectId(productId) };
+  // an example replacement ojbect:
+  /*const replacement = {
+      "storeLocation": "East Appleton",
+      "couponUsed": true,
+  };*/
 
-const options = { "returnNewDocument": false };
+const options = { "returnNewDocument": true };
 
   try {
     return await collection.findOneAndReplace(query, replacement, options);

@@ -1,27 +1,24 @@
-exports = async function(productIdToUpdate){
-  // Find the name of the MongoDB service you want to use (see "Linked Data Sources" tab)
+exports = async function(productIdToUpdate, updateFilter){
   var serviceName = "mongodb-atlas";
-
-  // Update these to reflect your db/collection
   var dbName = "sample_supplies";
   var collName = "sales";
-
-  // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
   const query = { "_id": productIdToUpdate };
   
-  const update = {
+  // example update filter:
+  /*const updatefilter = {
     "$set": {
       "price": 20.99,
     }
-  };
+  };*/
   
   const options = { "upsert": false };
   
   try {
-    updateResult = await collection.updateOne(query, update, options);
-    return updateResult["updatedId"];
+    updateResult = await collection.updateOne(query, updateFilter, options);
+    console.log(JSON.stringify(updateResult));
+    return updateResult;
 
   } catch(err) {
     console.log("Failed to update item: ", err.message);

@@ -9,18 +9,15 @@ exports = async function(args){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
-  const query = { "price": { "$gt": 29.99 } };
-  const projection = {
-   "title": 1,
-   "quantity": 1,
-  }
-  
   try {
-    doc = await collection.find(query, projection);
-    return doc;
+    insertResult = await collection.insertMany(args);
+    console.log('insertResult ids:', insertResult.insertedIds);
+    console.log('insertResult length:', insertResult.insertedIds.length);
+    console.log('returning', JSON.stringify(insertResult));
+    return insertResult;
 
   } catch(err) {
-    console.log("Failed to find item: ", err.message);
+    console.log("Failed to insert item(s): ", err.message);
     return { error: err.message };
   }
-}
+};

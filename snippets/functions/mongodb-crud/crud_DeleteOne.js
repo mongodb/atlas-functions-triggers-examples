@@ -1,17 +1,15 @@
-exports = async function(productIdToDelete){
-  // Find the name of the MongoDB service you want to use (see "Linked Data Sources" tab)
+exports = async function(deleteFilter){
   var serviceName = "mongodb-atlas";
-
-  // Update these to reflect your db/collection
   var dbName = "sample_supplies";
   var collName = "sales";
 
-  // Get a collection from the context
+  // example deleteFilter:
+  // { _id: ObjectId("123")}
+  
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
   try {
-    const query = { "product": productIdToDelete }
-    deleteResult = await collection.deleteMany(query);
+    deleteResult = await collection.deleteOne(deleteFilter);
     return deleteResult["deletedCount"];
 
   } catch(err) {
