@@ -76,7 +76,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     let resultId: ObjectId = new ObjectId();
     
     try {
-      const insertResult = (await user.functions.InsertOne(
+      const insertResult = (await user.functions.crud_InsertOne(
         insertOneArgs
       )) as InsertOneResult;
 
@@ -123,7 +123,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     class foo{"insertedIds":string[];}
     let insertedIds: foo = new foo();
     try {
-      const insertManyResult = (await user.functions.InsertMany(
+      const insertManyResult = (await user.functions.crud_InsertMany(
         insertManyArgs
       )) as foo;
 
@@ -152,7 +152,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     };
 
     try {
-      projectResult = (await user.functions.FindOne(
+      projectResult = (await user.functions.crud_FindOne(
         ids[0].toString(), projectionFilter)) as Sale;
     } catch (error) {
       if (error instanceof Error) {
@@ -184,7 +184,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     };
 
     try {
-      replaceResult = (await user.functions.Replace(
+      replaceResult = (await user.functions.crud_Replace(
         ids[1].toString(), updateFilter)) as Sale;
     } catch (error) {
       if (error instanceof Error) {
@@ -213,7 +213,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
 
     let count:number = 0;
     try {
-      const updateOneResult = (await user.functions.UpdateOne(
+      const updateOneResult = (await user.functions.crud_UpdateOne(
         ids[1], updateOneFilter)) as UpdateResult<Sale>;
         count = updateOneResult.modifiedCount;
     } catch (error) {
@@ -229,7 +229,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
 // FindOne //
 let findResult: Sale = new Sale();
     try {
-      findResult = (await user.functions.FindOne(
+      findResult = (await user.functions.crud_FindOne(
         ids[1].toString(), {})) as Sale;
     } catch (error) {
       if (error instanceof Error) {
@@ -260,7 +260,7 @@ let findResult: Sale = new Sale();
     };
 
     try {
-      const updateOneResult = (await user.functions.UpdateMany(
+      const updateOneResult = (await user.functions.crud_UpdateMany(
         updateManyFindFilter, updateManyResultFilter)) as UpdateResult<Sale>;
         count = updateOneResult.modifiedCount;
     } catch (error) {
@@ -276,7 +276,7 @@ let findResult: Sale = new Sale();
     let findResults: Sale[] = [];
 
     try {
-      findResults = (await user.functions.Find(
+      findResults = (await user.functions.crud_Find(
         {purchaseMethod: "Carrier Pig"})) as Sale[];
     } catch (error) {
       if (error instanceof Error) {
@@ -291,7 +291,7 @@ let findResult: Sale = new Sale();
 
 // *********** //
 // DeleteOne //
-    const deleteResult = (await user.functions.DeleteOne(
+    const deleteResult = (await user.functions.crud_DeleteOne(
       {purchaseMethod: "Trinkets"}
     )) as DeleteResult;
     expect(deleteResult).toBe(1);
@@ -301,7 +301,7 @@ let findResult: Sale = new Sale();
     let deleteManyCount: number;
     deleteManyCount = 0;
 
-    deleteManyCount = await user.functions.DeleteMany({}) as number;
+    deleteManyCount = await user.functions.crud_DeleteMany({}) as number;
 
     //commented out because if any test fails, this doesn't run
     //TODO: investigate tear-down style test so this always works

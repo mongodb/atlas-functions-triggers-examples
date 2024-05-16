@@ -3,7 +3,7 @@ import { App } from "realm";
 import "dotenv/config";
 
 function getDeviceSDKApp() {
-  const appId = process.env.APP_ID;
+  const appId = "atlas-functions-triggers-szivjrs";
   const app = new App({ id: appId! });
 
   return app;
