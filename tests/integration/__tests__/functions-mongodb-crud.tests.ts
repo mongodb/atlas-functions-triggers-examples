@@ -76,15 +76,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     let resultId: ObjectId = new ObjectId();
     
     try {
-<<<<<<< HEAD
-<<<<<<< HEAD
       const insertResult = (await user.functions.crud_InsertOne(
-=======
-      const insertResult = (await user.functions.InsertOne(
->>>>>>> c283719 (restore tests)
-=======
-      const insertResult = (await user.functions.crud_InsertOne(
->>>>>>> 8fc4250 (restore test suite changes and update function names)
         insertOneArgs
       )) as InsertOneResult;
 
@@ -131,15 +123,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     class foo{"insertedIds":string[];}
     let insertedIds: foo = new foo();
     try {
-<<<<<<< HEAD
-<<<<<<< HEAD
       const insertManyResult = (await user.functions.crud_InsertMany(
-=======
-      const insertManyResult = (await user.functions.InsertMany(
->>>>>>> c283719 (restore tests)
-=======
-      const insertManyResult = (await user.functions.crud_InsertMany(
->>>>>>> 8fc4250 (restore test suite changes and update function names)
         insertManyArgs
       )) as foo;
 
@@ -168,15 +152,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     };
 
     try {
-<<<<<<< HEAD
-<<<<<<< HEAD
       projectResult = (await user.functions.crud_FindOne(
-=======
-      projectResult = (await user.functions.FindOne(
->>>>>>> c283719 (restore tests)
-=======
-      projectResult = (await user.functions.crud_FindOne(
->>>>>>> 8fc4250 (restore test suite changes and update function names)
         ids[0].toString(), projectionFilter)) as Sale;
     } catch (error) {
       if (error instanceof Error) {
@@ -208,15 +184,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     };
 
     try {
-<<<<<<< HEAD
-<<<<<<< HEAD
       replaceResult = (await user.functions.crud_Replace(
-=======
-      replaceResult = (await user.functions.Replace(
->>>>>>> c283719 (restore tests)
-=======
-      replaceResult = (await user.functions.crud_Replace(
->>>>>>> 8fc4250 (restore test suite changes and update function names)
         ids[1].toString(), updateFilter)) as Sale;
     } catch (error) {
       if (error instanceof Error) {
@@ -245,15 +213,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
 
     let count:number = 0;
     try {
-<<<<<<< HEAD
-<<<<<<< HEAD
       const updateOneResult = (await user.functions.crud_UpdateOne(
-=======
-      const updateOneResult = (await user.functions.UpdateOne(
->>>>>>> c283719 (restore tests)
-=======
-      const updateOneResult = (await user.functions.crud_UpdateOne(
->>>>>>> 8fc4250 (restore test suite changes and update function names)
         ids[1], updateOneFilter)) as UpdateResult<Sale>;
         count = updateOneResult.modifiedCount;
     } catch (error) {
@@ -269,15 +229,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
 // FindOne //
 let findResult: Sale = new Sale();
     try {
-<<<<<<< HEAD
-<<<<<<< HEAD
       findResult = (await user.functions.crud_FindOne(
-=======
-      findResult = (await user.functions.FindOne(
->>>>>>> c283719 (restore tests)
-=======
-      findResult = (await user.functions.crud_FindOne(
->>>>>>> 8fc4250 (restore test suite changes and update function names)
         ids[1].toString(), {})) as Sale;
     } catch (error) {
       if (error instanceof Error) {
@@ -308,15 +260,7 @@ let findResult: Sale = new Sale();
     };
 
     try {
-<<<<<<< HEAD
-<<<<<<< HEAD
       const updateOneResult = (await user.functions.crud_UpdateMany(
-=======
-      const updateOneResult = (await user.functions.UpdateMany(
->>>>>>> c283719 (restore tests)
-=======
-      const updateOneResult = (await user.functions.crud_UpdateMany(
->>>>>>> 8fc4250 (restore test suite changes and update function names)
         updateManyFindFilter, updateManyResultFilter)) as UpdateResult<Sale>;
         count = updateOneResult.modifiedCount;
     } catch (error) {
@@ -332,15 +276,7 @@ let findResult: Sale = new Sale();
     let findResults: Sale[] = [];
 
     try {
-<<<<<<< HEAD
-<<<<<<< HEAD
       findResults = (await user.functions.crud_Find(
-=======
-      findResults = (await user.functions.Find(
->>>>>>> c283719 (restore tests)
-=======
-      findResults = (await user.functions.crud_Find(
->>>>>>> 8fc4250 (restore test suite changes and update function names)
         {purchaseMethod: "Carrier Pig"})) as Sale[];
     } catch (error) {
       if (error instanceof Error) {
@@ -355,15 +291,7 @@ let findResult: Sale = new Sale();
 
 // *********** //
 // DeleteOne //
-<<<<<<< HEAD
-<<<<<<< HEAD
     const deleteResult = (await user.functions.crud_DeleteOne(
-=======
-    const deleteResult = (await user.functions.DeleteOne(
->>>>>>> c283719 (restore tests)
-=======
-    const deleteResult = (await user.functions.crud_DeleteOne(
->>>>>>> 8fc4250 (restore test suite changes and update function names)
       {purchaseMethod: "Trinkets"}
     )) as DeleteResult;
     expect(deleteResult).toBe(1);
@@ -373,15 +301,7 @@ let findResult: Sale = new Sale();
     let deleteManyCount: number;
     deleteManyCount = 0;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     deleteManyCount = await user.functions.crud_DeleteMany({}) as number;
-=======
-    deleteManyCount = await user.functions.DeleteMany({}) as number;
->>>>>>> c283719 (restore tests)
-=======
-    deleteManyCount = await user.functions.crud_DeleteMany({}) as number;
->>>>>>> 8fc4250 (restore test suite changes and update function names)
 
     //commented out because if any test fails, this doesn't run
     //TODO: investigate tear-down style test so this always works
