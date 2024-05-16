@@ -19,7 +19,7 @@ const config: Config = {
       preset: "ts-jest/presets/js-with-ts",
       setupFilesAfterEnv: ["<rootDir>/jestSetup.ts"],
       modulePathIgnorePatterns: ["<rootDir>/__tests__/testFiles"],
-      testMatch: ["<rootDir>/__tests__/**/*.test.ts"],
+      testMatch: ["<rootDir>/__tests__/*.ts"],
       transform: {
         "^.+\\.ts$": "ts-jest",
       },
