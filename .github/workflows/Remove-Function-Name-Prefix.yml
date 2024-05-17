@@ -1,0 +1,19 @@
+name: Remove Function Name Prefixes
+
+on:
+  push:
+    paths:
+      - "functions/**"
+
+jobs:
+  build:
+    name: remove prefixes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          for file in functions/*; do 
+            justfile=$(basename -- "$file")
+            justfile="${justfile#*_}"
+            mv $file ./functions/$justfile
+          done
