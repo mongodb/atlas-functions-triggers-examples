@@ -5,6 +5,8 @@ on:
   push:
 
 jobs:
+  test-after-changing-file-names:
+    uses: ./.github/workflows/Remove-Function-Name-Prefix.yml
   run-node-tests:
     runs-on: ubuntu-latest
     strategy:
