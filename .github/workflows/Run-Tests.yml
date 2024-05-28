@@ -5,9 +5,11 @@ on:
   push:
 
 jobs:
+  test-after-changing-file-names:
+    uses: ./.github/workflows/Remove-Function-Name-Prefix.yml
   run-node-tests:
     runs-on: ubuntu-latest
-    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: [test-after-changing-file-names]
     strategy:
       matrix:
         node-version: [18.x]

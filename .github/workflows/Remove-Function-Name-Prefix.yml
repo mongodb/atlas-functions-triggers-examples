@@ -1,6 +1,7 @@
 name: Remove Function Name Prefixes
 
 on:
+  workflow_call:
   push:
 
 jobs:
