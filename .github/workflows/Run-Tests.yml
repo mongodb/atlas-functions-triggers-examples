@@ -1,16 +1,13 @@
 name: Test Examples
 
 on:
-  workflow_run:
-    workflows: [Remove Function Name Prefixes]
-    types: [completed]
   workflow_call:
   push:
 
 jobs:
   run-node-tests:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     strategy:
       matrix:
         node-version: [18.x]
