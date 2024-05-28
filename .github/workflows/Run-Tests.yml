@@ -1,16 +1,13 @@
-name: Atlas Functions and Triggers Example Tests
+name: Test Examples
 
 on:
   workflow_run:
     workflows: [remove-function-prefix]
     types: [completed]
   push:
-    paths:
-      - "snippets/**"
 
 jobs:
   run-node-tests:
-    name: Run Function and Trigger Tests
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     strategy:
