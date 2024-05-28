@@ -2,7 +2,7 @@ name: Test Examples
 
 on:
   workflow_run:
-    workflows: [remove-function-prefix]
+    workflows: [Remove Function Name Prefixes]
     types: [completed]
   push:
 
