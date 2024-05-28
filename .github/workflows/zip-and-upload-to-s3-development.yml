@@ -1,17 +1,16 @@
 name: Zip and Upload to S3 for Development
 
 on:
-  workflow_run:
-    workflows: [run-node-tests]
-    types: [completed]
   push:
     branches:
       - development
 
 jobs:
+  deploy-after-testing:
+    uses: ./.github/workflows/Run-Tests.yml
   zip-and-upload:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    needs: [deploy-after-testing]
     steps:
       - uses: actions/checkout@v2
       - run: mkdir zip
