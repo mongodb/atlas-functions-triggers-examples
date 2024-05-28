@@ -2,8 +2,8 @@ name: Remove Function Name Prefixes
 
 on:
   push:
-    paths:
-      - "functions/**"
+    branches:
+      - development
 
 jobs:
   build:
@@ -12,8 +12,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          for file in functions/*; do 
-            justfile=$(basename -- "$file")
-            justfile="${justfile#*_}"
-            mv $file ./functions/$justfile
+          git pull origin development --rebase
+          for file in $(find ./snippets/functions/  -type f -name '*.js'); do 
+            if [[ "$file" == *"_"* ]];then
+                justfile=$(basename -- "$file")
+                justpath=$(dirname "$file")
+                # echo $justfile
+                justfile="${justfile#*_}"
+                echo $justpath/$justfile
+                mv -n $file $justpath/$justfile
+            fi 
           done
+          git log -1 --format='%H' > latestCommit.md
+          git add .
+          git config --global user.email "caleb.thompson@mongodb.com"
+          git config --global user.name "ActionBot"
+          git commit -m 'test'
+          git push -f
+          git reset origin/development --soft
