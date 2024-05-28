@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows: [Remove Function Name Prefixes]
     types: [completed]
+  workflow_call:
   push:
 
 jobs:
