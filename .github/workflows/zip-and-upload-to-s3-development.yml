@@ -1,12 +1,16 @@
 name: Zip and Upload to S3 for Development
 
 on:
+  workflow_run:
+    workflows: [remove-function-prefix]
+    types: [completed]
   push:
     branches:
       - development
 
 jobs:
   zip-and-upload:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

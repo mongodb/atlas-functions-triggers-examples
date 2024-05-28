@@ -6,7 +6,7 @@ on:
       - development
 
 jobs:
-  build:
+  remove-function-prefix:
     name: remove prefixes
     runs-on: ubuntu-latest
     steps:
@@ -23,6 +23,7 @@ jobs:
                 mv -n $file $justpath/$justfile
             fi 
           done
+          git log -1 --format='%H' > latestCommit.md
           git add .
           git config --global user.email "caleb.thompson@mongodb.com"
           git config --global user.name "ActionBot"
