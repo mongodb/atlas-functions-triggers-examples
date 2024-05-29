@@ -3,7 +3,7 @@ name: Zip and Upload to S3 for Development
 on:
   push:
     branches:
-      - main
+      - production
 
 jobs:
   deploy-after-testing:
