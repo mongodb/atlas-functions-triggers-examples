@@ -1,6 +1,7 @@
 name: "Setup jq Example - Linux"
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       version:
@@ -15,7 +16,7 @@ on:
         default: false
 
 jobs:
-  example:
+  Setup-jq:
     runs-on: ubuntu-latest
     steps:
       - name: 'Setup jq'
