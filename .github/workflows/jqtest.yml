@@ -31,4 +31,13 @@ jobs:
           jq --version
       - id: set-matrix
         run: |
-          cat manifest.json | jq .snippetCategories
+          for fn in $(jq -r '.' manifest.json | jq -r '.snippetCategories[].metadata'); do
+            fullpath=".$fn"
+            echo "the next file is $fullpath"
+            if test -f $fullpath; then
+              echo "File exists."
+            else 
+              echo "FILE DOES NOT EXIST"
+              exit 1
+            fi
+          done
