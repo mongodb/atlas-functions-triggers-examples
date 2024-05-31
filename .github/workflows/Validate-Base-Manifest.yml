@@ -1,7 +1,7 @@
-name: "Setup jq Example - Linux"
+name: "Validate Base Manifest.json"
 
 on:
-  push:
+  pull_request:
   workflow_dispatch:
     inputs:
       version:
@@ -25,11 +25,7 @@ jobs:
         with:
           version: '${{ inputs.version }}'
           force: '${{ inputs.force }}'
-      
-      - name: 'Check jq'
-        run: |
-          jq --version
-      - id: set-matrix
+      - id: validate_manifest
         run: |
           for fn in $(jq -r '.' manifest.json | jq -r '.snippetCategories[].metadata'); do
             fullpath=".$fn"
@@ -37,7 +33,7 @@ jobs:
             if test -f $fullpath; then
               echo "File exists."
             else 
-              echo "FILE DOES NOT EXIST"
+              echo "**MANIFEST FILE DOES NOT EXIST**"
               exit 1
             fi
           done

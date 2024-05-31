@@ -1,7 +1,7 @@
 {
     "snippetCategories": [
         {
-        "metadata": "/snippets/functions/third-party/grrrr.json"
+        "metadata": "/snippets/functions/third-party/manifest.json"
         },
         {
         "metadata": "/snippets/functions/mongodb-crud/manifest.json"
@@ -17,9 +17,6 @@
         },
         {
         "metadata": "/snippets/triggers/project/manifest.json"
-        },
-        {
-        "metadata": "/snippets/triggers/project/lorp.json"
         }
     ]
 }

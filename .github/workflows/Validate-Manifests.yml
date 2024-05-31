@@ -8,15 +8,8 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     steps:
-    #  - name: Check for any changed schemas
-    #    id: check-for-changed-schemas
-    #    uses: tj-actions/changed-files@v41
-    #    with:
-    #      files: |
-    #        ./**.json
     - uses: actions/checkout@v2
     - name: Validate scehmas
-      # if: steps.check-for-changed-schemas.outputs.any_changed == 'true'
       uses: dsanders11/json-schema-validate-action@v1.1.2
       with:
         schema: ./snippets/manifest-schema.json
