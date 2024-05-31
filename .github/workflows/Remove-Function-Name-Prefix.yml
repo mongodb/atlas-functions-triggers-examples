@@ -2,7 +2,7 @@ name: Remove Function Name Prefixes
 
 on:
   workflow_call:
-  push:
+  pull_request:
 
 jobs:
   remove-function-prefix:

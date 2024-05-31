@@ -1,0 +1,13 @@
+{
+    "category": "Function Context Examples",
+    "categoryId": "38b0fd8f-fefe-4cb4-838c-a094d61e299e",
+    "viewType": "functionSnippet",
+    "snippets": [
+        {
+        "id": "c2171069-9b17-41b0-bb5c-475a141a13ed",
+        "title": "Call another function from a function",
+        "snippet": "/callFunction.js",
+        "description": "Use the Function context to call another function."
+        }
+    ]
+}
