@@ -15,14 +15,15 @@ jobs:
     #      files: |
     #        ./**.json
     - uses: actions/checkout@v2
-    - name: Um
-      run: |
-        echo "where am I?"
-        ls 
-        cat ./snippets/manifest-schema.json
     - name: Validate scehmas
       # if: steps.check-for-changed-schemas.outputs.any_changed == 'true'
       uses: dsanders11/json-schema-validate-action@v1.1.2
       with:
         schema: ./snippets/manifest-schema.json
         files: ./snippets/functions/**/**.json 
+    - name: Test
+      run: |
+        content=`cat ./manifest.json`
+        echo $content
+        barf=${{fromJson($content)}}
+        echo ${{ barf }}
