@@ -1,7 +1,7 @@
 name: Update Commit Hash
 
 on:
-  push:
+  pull_request:
   workflow_dispatch:
 
 jobs:

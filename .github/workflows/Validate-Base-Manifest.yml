@@ -1,0 +1,39 @@
+name: "Validate Base Manifest.json"
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        required: false
+        description: 'Version of jq to install'
+        default: '1.7'
+      force:
+        type: boolean
+        required: false
+        description: 'Do not check for existing jq installation before continuing.'
+        default: false
+
+jobs:
+  Setup-jq:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: 'Setup jq'
+        uses: dcarbone/install-jq-action@v2
+        with:
+          version: '${{ inputs.version }}'
+          force: '${{ inputs.force }}'
+      - id: validate_manifest
+        run: |
+          for fn in $(jq -r '.' manifest.json | jq -r '.snippetCategories[].metadata'); do
+            fullpath=".$fn"
+            echo "the next file is $fullpath"
+            if test -f $fullpath; then
+              echo "File exists."
+            else 
+              echo "**MANIFEST FILE DOES NOT EXIST**"
+              exit 1
+            fi
+          done
