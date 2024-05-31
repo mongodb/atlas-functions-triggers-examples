@@ -19,16 +19,16 @@ jobs:
   Setup-jq:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: 'Setup jq'
         uses: dcarbone/install-jq-action@v2
         with:
           version: '${{ inputs.version }}'
           force: '${{ inputs.force }}'
       
-      #- name: 'Check jq'
-        # language=sh
-        # run: |
-        #  jq --version
+      - name: 'Check jq'
+        run: |
+          jq --version
       - id: set-matrix
         run: |
           cat manifest.json | jq .snippetCategories
