@@ -1,0 +1,33 @@
+name: "Setup jq Example - Linux"
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        required: false
+        description: 'Version of jq to install'
+        default: '1.7'
+      force:
+        type: boolean
+        required: false
+        description: 'Do not check for existing jq installation before continuing.'
+        default: false
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Setup jq'
+        uses: dcarbone/install-jq-action@v2
+        with:
+          version: '${{ inputs.version }}'
+          force: '${{ inputs.force }}'
+      
+      #- name: 'Check jq'
+        # language=sh
+        # run: |
+        #  jq --version
+      - id: set-matrix
+        run: |
+          cat manifest.json | jq .snippetCategories
