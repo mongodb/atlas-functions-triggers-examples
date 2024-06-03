@@ -24,4 +24,4 @@ jobs:
           git config --global user.email "caleb.thompson@mongodb.com"
           git config --global user.name "ActionBot"
           git commit --amend --no-edit -m 'remove function name prefix'
-          git push origin ${{ github.head_ref }}
+          git push origin HEAD:${{ github.head_ref }}
