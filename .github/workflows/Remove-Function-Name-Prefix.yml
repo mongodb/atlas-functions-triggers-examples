@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          git pull ${{ github.event.pull_request.head.ref }}
+          git pull ${{ github.head_ref }}
           for file in $(find ./snippets/functions/  -type f -name '*.js'); do 
             if [[ "$file" == *"_"* ]];then
                 justfile=$(basename -- "$file")
@@ -23,5 +23,5 @@ jobs:
           done
           git config --global user.email "caleb.thompson@mongodb.com"
           git config --global user.name "ActionBot"
-          git commit -m 'test'
-          git push -f
+          git commit -m 'remove function name prefix'
+          git push
