@@ -23,5 +23,5 @@ jobs:
           done
           git config --global user.email "caleb.thompson@mongodb.com"
           git config --global user.name "ActionBot"
-          gigit commit --amend --no-edit -m 'remove function name prefix'
+          git commit --amend --no-edit -m 'remove function name prefix'
           git push
