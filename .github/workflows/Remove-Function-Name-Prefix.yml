@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          git pull origin ${{ github.ref_name }}
+          git pull origin ${{ github.base_ref }}
           for file in $(find ./snippets/functions/  -type f -name '*.js'); do 
             if [[ "$file" == *"_"* ]];then
                 justfile=$(basename -- "$file")
@@ -25,4 +25,3 @@ jobs:
           git config --global user.name "ActionBot"
           git commit -m 'test'
           git push -f
-          git reset origin/${{ github.ref_name }} --soft
