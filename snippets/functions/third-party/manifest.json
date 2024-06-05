@@ -13,7 +13,7 @@
       "id": "b1b777e1-0747-46dc-bf4e-0f3ddb7244cd",
       "title": "Using axios dependency",
       "snippet": "/axios.js",
-      "description": "Replace HTTP requests sent through an HTTP Service client with calls to an HTTP library using the axios npm dependency"
+      "description": "Making HTTP requests with axios npm dependency."
     }
   ]
 }
