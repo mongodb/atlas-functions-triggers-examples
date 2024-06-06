@@ -5,9 +5,15 @@
   "snippets": [
     {
       "id": "e5450427-8503-4e1a-aac3-03e5e39e8f8e",
-      "title": "Calling Twilio service via NPM dependency",
+      "title": "Calling Twilio service",
       "snippet": "/twilio.js",
       "description": "Calling the Twilio service with the official Twilio Node Helper Library. To authenticate Twilio requests, store your Account SID and Auth Token as values. You can then access them within functions and pass them to the SDK."
+    },
+    {
+      "id": "b1b777e1-0747-46dc-bf4e-0f3ddb7244cd",
+      "title": "Using axios dependency",
+      "snippet": "/axios.js",
+      "description": "Making HTTP requests with axios npm dependency."
     }
   ]
 }
