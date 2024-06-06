@@ -21,8 +21,10 @@ jobs:
                 mv -n $file $justpath/$justfile
             fi 
           done
-          git add .
-          git config --global user.email "caleb.thompson@mongodb.com"
-          git config --global user.name "ActionBot"
-          git commit -m 'remove function name prefix'
-          git push origin ${{ github.ref }}
+          if [  -z "$(git diff --name-only)" ]; then
+            git add .
+            git config --global user.email "caleb.thompson@mongodb.com"
+            git config --global user.name "ActionBot"
+            git commit -m 'remove function name prefix'
+            git push origin ${{ github.ref }}
+          fi
