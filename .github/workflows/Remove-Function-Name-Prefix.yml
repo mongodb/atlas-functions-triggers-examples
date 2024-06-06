@@ -2,7 +2,7 @@ name: Remove Function Name Prefixes
 
 on:
   workflow_call:
-  pull_request:
+  push:
 
 jobs:
   remove-function-prefix:
@@ -15,9 +15,9 @@ jobs:
             if [[ "$file" == *"_"* ]];then
                 justfile=$(basename -- "$file")
                 justpath=$(dirname "$file")
-                # echo $justfile
+                echo "was" $file
                 justfile="${justfile#*_}"
-                echo $justpath/$justfile
+                echo "saving as" $justpath/$justfile
                 mv -n $file $justpath/$justfile
             fi 
           done
