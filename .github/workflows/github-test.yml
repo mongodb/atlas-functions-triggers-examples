@@ -1,0 +1,15 @@
+name: Remove Function Name Prefixes
+
+on:
+  workflow_call:
+  pull_request:
+
+jobs:
+  test-github:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          echo "${{ github.repository }}"
+          echo "${{ github.head_ref }}"
+          echo "${{ github.base_ref }}"
