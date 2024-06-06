@@ -1,0 +1,21 @@
+name: Update Commit Hash
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  update_commit_hash:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update file with merge commit hash
+        run: |
+          git pull origin ${{ github.head_ref }} --rebase
+          git log -1 --format='%H' > latestCommit.md
+          git config --global user.email "caleb.thompson@mongodb.com"
+          git config --global user.name "ActionBot"
+          git add latestCommit.md
+          git commit --amend --no-edit -m 'update commit hash'
+          git push -f origin HEAD:${{ github.head_ref }}

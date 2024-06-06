@@ -1,0 +1,18 @@
+name: Validate Manifests
+on: [pull_request]
+
+jobs:
+  validate-github-actions-workflows:
+    name: Validate JSON Schemas
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Validate scehmas
+      # if: steps.check-for-changed-schemas.outputs.any_changed == 'true'
+      uses: dsanders11/json-schema-validate-action@v1.1.2
+      with:
+        schema: ./snippets/manifest-schema.json
+        files: ./snippets/functions/**/**.json 
+# returns valid==true 

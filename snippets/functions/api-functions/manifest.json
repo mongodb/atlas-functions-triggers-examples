@@ -1,0 +1,13 @@
+{
+    "category": "Function API Calls",
+    "categoryId": "f9edca1b-a841-4037-8e6c-421d547ca160",
+    "viewType": "functionSnippet",
+    "snippets": [
+        {
+        "id": "f812224f-55dd-4192-98d8-59246053940b",
+        "title": "Call an external API from a function",
+        "snippet": "/callExternalAPI.js",
+        "description": "Use the function's context.http to call an external API."
+        }
+    ]
+}

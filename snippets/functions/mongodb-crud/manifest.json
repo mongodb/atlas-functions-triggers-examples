@@ -1,0 +1,61 @@
+{
+    "category": "MongoDB CRUD Operations",
+    "categoryId": "3a7e7c81-6772-460f-90a5-376d49d227e0",
+    "viewType": "functionSnippet",
+    "snippets": [
+        {
+        "id": "3a7e7c81-6772-460f-90a5-376d49d227e1",
+        "title": "Delete a Single document",
+        "snippet": "/DeleteOne.js",
+        "description": "Delete a single document by performing MongoDB CRUD operations using an Atlas Function by using 'deleteOne' in the Function context."
+        },
+        {
+            "id": "3a7e7c81-6772-460f-90a5-376d49d227e2",
+            "title": "Delete multiple documents",
+            "snippet": "/DeleteMany.js",
+            "description": "Delete multiple documents by performing MongoDB CRUD operations using an Atlas Function by using 'deleteMany' in the Function context."
+        },
+        {
+            "id": "3a7e7c81-6772-460f-90a5-376d49d227e3",
+            "title": "Find a Single Document",
+            "snippet": "/FindOne.js",
+            "description": "Find a single document by performing MongoDB CRUD operations using an Atlas Function by using 'findOne' in the Function context."
+        },
+        {
+            "id": "3a7e7c81-6772-460f-90a5-376d49d227e4",
+            "title": "Find Multiple Documents",
+            "snippet": "/Find.js",
+            "description": "Find multiple documents by performing MongoDB CRUD operations using an Atlas Function by using 'findMany' in the Function context."
+        },
+        {
+            "id": "3a7e7c81-6772-460f-90a5-376d49d227e5",
+            "title": "Insert a Single Document",
+            "snippet": "/InsertOne.js",
+            "description": "Insert a single document by performing MongoDB CRUD operations using an Atlas Function by using 'insertOne' in the Function context."
+        },
+        {
+            "id": "3a7e7c81-6772-460f-90a5-376d49d227e6",
+            "title": "Insert Multiple Documents",
+            "snippet": "/InsertMany.js",
+            "description": "Insert multiple documents by performing MongoDB CRUD operations using an Atlas Function by using 'insertMany' in the Function context."
+        },
+        {
+            "id": "3a7e7c81-6772-460f-90a5-376d49d227e7",
+            "title": "Replace a Single document",
+            "snippet": "/Replace.js",
+            "description": "Replace a single document by performing MongoDB CRUD operations using an Atlas Function by using 'replace' in the Function context."
+        },
+        {
+            "id": "3a7e7c81-6772-460f-90a5-376d49d227e8",
+            "title": "Update a Single Document",
+            "snippet": "/UpdateOne.js",
+            "description": "Update a single document by performing MongoDB CRUD operations using an Atlas Function by using 'updateOne' in the Function context."
+        },
+        {
+            "id": "3a7e7c81-6772-460f-90a5-376d49d227e9",
+            "title": "Update Multiple Documents",
+            "snippet": "/UpdateMany.js",
+            "description": "Update multiple documents by performing MongoDB CRUD operations using an Atlas Function by using 'updateMany' in the Function context."
+        }
+    ]
+}

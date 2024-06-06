@@ -1,0 +1,27 @@
+name: Remove Function Name Prefixes
+
+on:
+  workflow_call:
+  push:
+
+jobs:
+  remove-function-prefix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          git pull origin ${{ github.ref }} --rebase
+          for file in $(find ./snippets/functions/  -type f -name '*.js'); do 
+            if [[ "$file" == *"_"* ]];then
+                justfile=$(basename -- "$file")
+                justpath=$(dirname "$file")
+                # echo $justfile
+                justfile="${justfile#*_}"
+                echo $justpath/$justfile
+                mv -n $file $justpath/$justfile
+            fi 
+          done
+          git config --global user.email "caleb.thompson@mongodb.com"
+          git config --global user.name "ActionBot"
+          git commit --amend --no-edit -m 'remove function name prefix'
+          git push -f origin HEAD:${{ github.ref }}

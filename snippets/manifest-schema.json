@@ -1,0 +1,54 @@
+{
+  "title": "JSON schema for function and trigger manifests",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string"
+    },
+    "categoryId": {
+      "type": "string"
+    },
+    "viewType": {
+      "type": "string",
+      "enum": [
+        "functionSnippet",
+        "triggerMatch",
+        "triggerProject"
+      ]
+    },
+    "snippets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "snippet": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "snippet",
+          "description"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "category",
+    "categoryId",
+    "viewType",
+    "snippets"
+  ]
+}
