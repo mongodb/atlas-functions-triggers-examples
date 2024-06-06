@@ -25,4 +25,4 @@ jobs:
           git config --global user.name "ActionBot"
           git commit --amend --no-edit -m 'remove function name prefix'
           git pull origin ${{ github.ref }} --no-ff
-          git push origin ${{ github.ref }}
+          git push origin ${{ github.ref }} --allow-unrelated-histories
