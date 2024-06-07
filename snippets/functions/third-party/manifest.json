@@ -14,6 +14,12 @@
       "title": "Using axios dependency",
       "snippet": "/axios.js",
       "description": "Making HTTP requests with axios npm dependency."
+    },
+    {
+      "id": "3c0e06b6-313e-4321-8794-47b53d66e961",
+      "title": "Using node-fetch dependency",
+      "snippet": "/nodeFetch.js",
+      "description": "Making HTTP requests with node-fetch dependency. Atlas App Services does not support v3 of node-fetch, use v2 instead."
     }
   ]
 }
