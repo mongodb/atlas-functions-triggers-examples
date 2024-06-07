@@ -56,6 +56,12 @@
             "title": "Update Multiple Documents",
             "snippet": "/UpdateMany.js",
             "description": "Update multiple documents by performing MongoDB CRUD operations using an Atlas Function by using 'updateMany' in the Function context."
+        },
+        {
+            "id": "3a7e7c81-6772-460f-90a5-376d49d227ea",
+            "title": "Find a Document and Project the Output",
+            "snippet": "/UpdateMany.js",
+            "description": "Find a single document and project the output."
         }
     ]
 }
