@@ -60,7 +60,7 @@
         {
             "id": "3a7e7c81-6772-460f-90a5-376d49d227ea",
             "title": "Find a Document and Project the Output",
-            "snippet": "/UpdateMany.js",
+            "snippet": "/Project.js",
             "description": "Find a single document and project the output."
         }
     ]
