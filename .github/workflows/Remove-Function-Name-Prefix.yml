@@ -28,5 +28,4 @@ jobs:
             git commit -m 'remove function name prefix'
             git push origin ${{ github.ref }}
           fi
-
           echo "done"
