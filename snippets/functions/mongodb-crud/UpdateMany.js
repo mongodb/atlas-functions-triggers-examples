@@ -9,12 +9,13 @@ exports = async function(query, updateFilter){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
-  // Exampke update filter:
-  /*const updateFilter = {
+  // Example update filter:
+  /* const updateFilter = {
     "$set": {
       "storeId": storeId,
     }
-  };*/
+  };
+  */
   
   const options = { "upsert": false };
 

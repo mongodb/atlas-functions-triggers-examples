@@ -12,11 +12,11 @@ exports = async function(productId, replacement){
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
   const query = { "_id": BSON.ObjectId(productId) };
-  // an example replacement ojbect:
-  /*const replacement = {
+  // An example replacement ojbect:
+  /* const replacement = {
       "storeLocation": "East Appleton",
       "couponUsed": true,
-  };*/
+  }; */
 
 const options = { "returnNewDocument": true };
 
