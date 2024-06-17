@@ -205,6 +205,35 @@ describe("Test MongoDB CRUD operations in Functions", () => {
       "storeLocation": "East Appleton",
       "couponUsed": true
     }*/
+
+
+     let changeEvent = {
+        _id: {_data: ids[0] },
+        operationType: 'insert',
+        clusterTime: {
+          "$timestamp": {
+            t: 1649712420,
+            i:6
+          }
+        },
+        ns: {
+          db: 'engineering',
+          coll: 'users'
+        },
+        documentKey: {
+          userName: 'alice123',
+          _id: {
+            "$oid": "62548f79e7f11292792497cc"
+          }
+        },
+        fullDocument: {
+          _id: {
+            "$oid": "599af247bb69cd89961c986d"
+          },
+          userName: 'alice123',
+          name: 'Alice'
+        }
+      };
   
     const updateOneFilter = {
       "storeLocation": "Camden",
@@ -212,9 +241,10 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     };
 
     let count:number = 0;
+    let updateOneResult;
     try {
-      const updateOneResult = (await user.functions.crud_UpdateOne(
-        ids[1], updateOneFilter)) as UpdateResult<Sale>;
+      updateOneResult = (await user.functions.crud_UpdateOne(
+        changeEvent)) as UpdateResult<Sale>;
         count = updateOneResult.modifiedCount;
     } catch (error) {
       if (error instanceof Error) {
@@ -223,6 +253,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     }
 
     expect(count).toBe(1);
+    console.log(updateOneResult)
 
     //you have to find the updated doc; it is not returned
 // *********** //
