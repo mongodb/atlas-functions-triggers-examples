@@ -1,4 +1,4 @@
-exports = async function(_id){
+exports = async function(changeEvent){
   // Find the name of the MongoDB service you want to use (see "Linked Data Sources" tab)
   var serviceName = "mongodb-atlas";
 
@@ -9,14 +9,10 @@ exports = async function(_id){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  const query = { "_id": new BSON.ObjectId(_id) };
-  const projection = {
-   "title": 1,
-   "quantity": 1,
-  }
+  const query = { "_id": new BSON.ObjectId(changeEvent._id._data) };
 
   try {
-    doc = await collection.findOne(query, projection);
+    doc = await collection.findOne(query);
     return doc;
 
   } catch(err) {
