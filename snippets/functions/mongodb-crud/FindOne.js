@@ -1,56 +1,26 @@
-exports = async function (changeEvent) {
-  var collection = context.services
-    .get("mongodb-atlas")
-    .db("sample_supplies")
-    .collection("sales");
+exports = async function(productId){
+  // Find the name of the MongoDB service you want to use (see "Linked Data Sources" tab)
+  var serviceName = "mongodb-atlas";
 
-  const query = { _id: new BSON.ObjectId(saleId) };
+  // Update these to reflect your db/collection
+  var dbName = "sample_supplies";
+  var collName = "sales";
 
-  const replacement = {
-    storeLocation: "East Appleton",
-    couponUsed: false,
-  };
-
-  const options = { returnNewDocument: true };
+  // Get a collection from the context
+  var collection = context.services.get(serviceName).db(dbName).collection(collName);
+  
+  const query = { "productId": productId };
+  const projection = {
+   "title": 1,
+   "quantity": 1,
+  }
 
   try {
-    return await collection.findOneAndReplace(query, replacement, options);
-  } catch (err) {
-    console.log("Failed to replace item: ", err.message);
+    doc = await collection.findOne(query, projection);
+    return doc;
+
+  } catch(err) {
+    console.log("Failed to find item: ", err.message);
     return { error: err.message };
   }
 };
-
-// To test the above example, insert the following document into your collection:
-// {"_id":{"$oid":"62548f79e7f11292792497cc"},"storeLocation":"East Appleton","couponUsed":false}
-
-// Then, in the testing console paste the code below and click Run to test this mock change event against the example code
-/*
-exports({
-  _id: {_data: '62548f79e7f11292792497cc' },
-  operationType: 'insert',
-  clusterTime: {
-    "$timestamp": {
-      t: 1649712420,
-      i:6
-    }
-  },
-  ns: {
-    db: 'engineering',
-    coll: 'users'
-  },
-  documentKey: {
-    userName: 'alice123',
-    _id: {
-      "$oid": "62548f79e7f11292792497cc"
-    }
-  },
-  fullDocument: {
-    _id: {
-      "$oid": "599af247bb69cd89961c986d"
-    },
-    userName: 'alice123',
-    name: 'Alice'
-  }
-})
-*/
