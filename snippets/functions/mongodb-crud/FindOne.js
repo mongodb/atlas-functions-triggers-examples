@@ -1,4 +1,4 @@
-exports = async function(productId){
+exports = async function(_id){
   // Find the name of the MongoDB service you want to use (see "Linked Data Sources" tab)
   var serviceName = "mongodb-atlas";
 
@@ -9,7 +9,7 @@ exports = async function(productId){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  const query = { "productId": productId };
+  const query = { "_id": new BSON.ObjectId(_id) };
   const projection = {
    "title": 1,
    "quantity": 1,

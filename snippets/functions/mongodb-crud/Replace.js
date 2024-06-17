@@ -4,7 +4,6 @@ exports = async function (changeEvent) {
     .db("sample_supplies")
     .collection("sales");
 
-  console.log(changeEvent._id._data);
   const query = { _id: new BSON.ObjectId(changeEvent._id._data) };
 
   const replacement = {
