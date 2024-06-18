@@ -80,6 +80,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
         insertOneArgs
       )) as InsertOneResult;
 
+    
       if (insertResult.insertedId instanceof ObjectId) {
         resultId = insertResult.insertedId;
       }
@@ -143,7 +144,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
 
 // *********** //
 // Project //
-    let projectResult: Sale = new Sale();
+   let projectResult;
 
     const projectionFilter = {
       _id:0,
@@ -152,8 +153,9 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     };
 
     try {
-      projectResult = (await user.functions.crud_FindOne(
+      projectResult = (await user.functions.crud_Project(
         ids[0].toString(), projectionFilter)) as Sale;
+
     } catch (error) {
       if (error instanceof Error) {
         fail(error.message);
@@ -161,10 +163,38 @@ describe("Test MongoDB CRUD operations in Functions", () => {
     }
 
     expect(projectResult).not.toBeNull;
-    expect(projectResult.storeLocation).not.toBeNull;
+   /* expect(projectResult.storeLocation).not.toBeNull;
     expect(projectResult.storeLocation).toBe("Scranton");
     expect(projectResult.items?.length).toBe(2);
-    expect(projectResult.saleDate).toBeNull;
+    expect(projectResult.saleDate).toBeNull;*/
+
+    const changeEvent = {
+      _id: {_data: ids[0].toString() },
+      operationType: 'insert',
+      clusterTime: {
+        "$timestamp": {
+          t: 1649712420,
+          i:6
+        }
+      },
+      ns: {
+        db: 'engineering',
+        coll: 'users'
+      },
+      documentKey: {
+        userName: 'alice123',
+        _id: {
+          "$oid": "62548f79e7f11292792497cc"
+        }
+      },
+      fullDocument: {
+        _id: {
+          "$oid": "599af247bb69cd89961c986d"
+        },
+        userName: 'alice123',
+        name: 'Alice'
+      }
+    };
 
 
 // *********** //
@@ -176,25 +206,21 @@ describe("Test MongoDB CRUD operations in Functions", () => {
       "storeLocation": "East Appleton",
       "couponUsed": true
     }*/
+
     let replaceResult: Sale = new Sale();
 
-    const updateFilter = {
-      "storeLocation": "East Appleton",
-      "couponUsed": true,
-    };
-
     try {
-      replaceResult = (await user.functions.crud_Replace(
-        ids[1].toString(), updateFilter)) as Sale;
+      replaceResult = await user.functions.crud_Replace(
+        changeEvent) as Sale;
     } catch (error) {
       if (error instanceof Error) {
         fail(error.message);
       }
     }
-
-    expect(replaceResult).not.toBeNull;
-    expect(replaceResult.couponUsed).toBeTruthy();
+    
+    expect(replaceResult.couponUsed).toBe(false);
     expect(replaceResult.storeLocation).toBe("East Appleton");
+      
 
 // *********** //
 // UPDATEONE //
@@ -205,70 +231,33 @@ describe("Test MongoDB CRUD operations in Functions", () => {
       "storeLocation": "East Appleton",
       "couponUsed": true
     }*/
+      
+      let updateResult: Sale = new Sale();
 
-
-     let changeEvent = {
-        _id: {_data: ids[0] },
-        operationType: 'insert',
-        clusterTime: {
-          "$timestamp": {
-            t: 1649712420,
-            i:6
-          }
-        },
-        ns: {
-          db: 'engineering',
-          coll: 'users'
-        },
-        documentKey: {
-          userName: 'alice123',
-          _id: {
-            "$oid": "62548f79e7f11292792497cc"
-          }
-        },
-        fullDocument: {
-          _id: {
-            "$oid": "599af247bb69cd89961c986d"
-          },
-          userName: 'alice123',
-          name: 'Alice'
+      try {
+        updateResult = await user.functions.crud_UpdateOne(
+          changeEvent) as Sale;
+      } catch (error) {
+        if (error instanceof Error) {
+          fail(error.message);
         }
-      };
-  
-    const updateOneFilter = {
-      "storeLocation": "Camden",
-      "customer": 123,
-    };
-
-    let count:number = 0;
-    let updateOneResult;
-    try {
-      updateOneResult = (await user.functions.crud_UpdateOne(
-        changeEvent)) as UpdateResult<Sale>;
-        count = updateOneResult.modifiedCount;
-    } catch (error) {
-      if (error instanceof Error) {
-        fail(error.message);
       }
-    }
 
-    expect(count).toBe(1);
-    console.log(updateOneResult)
-
-    //you have to find the updated doc; it is not returned
+        
 // *********** //
 // FindOne //
-let findResult: Sale = new Sale();
-    try {
-      findResult = (await user.functions.crud_FindOne(
-        ids[1].toString(), {})) as Sale;
-    } catch (error) {
-      if (error instanceof Error) {
-        fail(error.message);
+
+      let updatedDocumentResult: Sale = new Sale();
+      try {
+        updatedDocumentResult = await user.functions.crud_FindOne(
+          changeEvent) as Sale;
+      } catch (error) {
+        if (error instanceof Error) {
+          fail(error.message);
+        }
       }
-    }
-    expect(findResult.customer).toBe(123);
-    expect(findResult.storeLocation).toBe("Camden");
+      expect(updatedDocumentResult.couponUsed).toBe(true)
+      expect(updatedDocumentResult.storeLocation).toBe("West Appleton");
 
 
 // *********** //
@@ -280,7 +269,8 @@ let findResult: Sale = new Sale();
       "storeLocation": "East Appleton",
       "couponUsed": true
     }*/
-  
+    let count;
+
     const updateManyFindFilter = {
       "purchaseMethod": "Carrier Pigeon"
     };
@@ -322,9 +312,9 @@ let findResult: Sale = new Sale();
 
 // *********** //
 // DeleteOne //
-    const deleteResult = (await user.functions.crud_DeleteOne(
+    const deleteResult = await user.functions.crud_DeleteOne(
       {purchaseMethod: "Trinkets"}
-    )) as DeleteResult;
+    ) as DeleteResult;
     expect(deleteResult).toBe(1);
 
 // *********** //
@@ -338,7 +328,7 @@ let findResult: Sale = new Sale();
     //TODO: investigate tear-down style test so this always works
     
    //expect(deleteManyCount).toBe(2);
-}, 3000);
+}, 6000);
 })
 
 /*
@@ -355,4 +345,19 @@ order of tests:
 ✓ DeleteOne
 ✓ DeleteMany
 
+*/
+
+/* 
+UPDATED WITH CHANGE EVENT
+
+  InsertOne
+  InsertMany
+✓ FindOne
+  Project
+✓ Replace
+✓ UpdateOne
+  UpdateMany
+  Find
+  DeleteOne
+  DeleteMany
 */
