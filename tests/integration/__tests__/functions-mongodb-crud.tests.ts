@@ -313,7 +313,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
 // *********** //
 // DeleteOne //
     const deleteResult = await user.functions.crud_DeleteOne(
-      {purchaseMethod: "Trinkets"}
+      {}
     ) as DeleteResult;
     expect(deleteResult).toBe(1);
 
