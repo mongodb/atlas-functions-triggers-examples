@@ -3,7 +3,7 @@ exports = async function(deleteFilter){
   var dbName = "sample_supplies";
   var collName = "sales";
 
-  // example deleteFilter:
+  // An example deleteFilter:
   // { _id: ObjectId("123")}
   
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
