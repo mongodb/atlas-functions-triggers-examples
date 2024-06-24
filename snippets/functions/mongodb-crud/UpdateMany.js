@@ -12,7 +12,8 @@ exports = async function (changeEvent) {
   // Example update filter:
   const updateFilter = {
     "$set": {
-      "storeLocation": "West Appleton"
+      "storeLocation": "Langley",
+      "purchaseMethod" : "credit"
     }
   };
   
