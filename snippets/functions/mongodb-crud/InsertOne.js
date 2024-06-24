@@ -5,7 +5,9 @@ exports = async function (changeEvent) {
     .collection("sales");
 
   try {
-    var result = await collection.insertOne({"storeLocation":changeEvent.fullDocument.storeLocation, "items":changeEvent.fullDocument.items});
+    var result = await collection.insertOne({"_id": changeEvent._id._data, 
+                                             "storeLocation":changeEvent.fullDocument.storeLocation,
+                                             "items":changeEvent.fullDocument.items});
     return result;
   } catch (err) {
     console.log("Failed to insert item: ", err.message);

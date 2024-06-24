@@ -16,7 +16,7 @@ exports = async function (changeEvent) {
     }
   };
   
-  const options = { "upsert": false };
+  const options = { "upsert": true };
 
   try {
     updateResult = await collection.updateMany(query, updateFilter, options);
