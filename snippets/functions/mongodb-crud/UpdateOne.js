@@ -5,9 +5,9 @@ exports = async function (changeEvent) {
     .collection("sales");
 
   // To test this example, uncomment the following line:
-  // collection.insertOne({"_id": new BSON.ObjectId("62548f79e7f11292792497cc"),"storeLocation":"East Appleton","couponUsed":false});
+  // await collection.insertOne({"_id":"62548f79e7f11292792497cc","storeLocation":"East Appleton","couponUsed":false});
   
-  const query = { _id: new BSON.ObjectId(changeEvent._id._data) };
+  const query = { _id: changeEvent._id._data };
 
   const updateFields = {
     storeLocation: "West Appleton",
@@ -39,14 +39,10 @@ exports({
   },
   documentKey: {
     storeLocation: 'East Appleton',
-    _id: {
-      "$oid": "62548f79e7f11292792497cc"
-    }
+    _id: "62548f79e7f11292792497cc"
   },
   fullDocument: {
-    _id: {
-      "$oid": "599af247bb69cd89961c986d"
-    },
+    _id: "599af247bb69cd89961c986d",
     storeLocation: 'East Appleton',
     couponUsed: false
   }
