@@ -5,8 +5,7 @@ exports = async function (changeEvent) {
     .collection("sales");
 
   try {
-    var result = await collection.insertOne({"_id": changeEvent._id._data, 
-                                             "storeLocation":changeEvent.fullDocument.storeLocation,
+    var result = await collection.insertOne({"storeLocation":changeEvent.fullDocument.storeLocation,
                                              "items":changeEvent.fullDocument.items});
     return result;
   } catch (err) {
@@ -32,14 +31,10 @@ exports({
   },
   documentKey: {
     storeLocation: 'East Appleton',
-    _id: {
-      "$oid": "62548f79e7f11292792497cc"
-    }
+    _id: "62548f79e7f11292792497cc"
   },
   fullDocument: {
-    _id: {
-      "$oid": "599af247bb69cd89961c986d"
-    },
+    _id: "599af247bb69cd89961c986d",
     storeLocation: 'East Appleton',
     items: ["envelopes"]
   }
