@@ -10,10 +10,10 @@ exports = async function(changeEvent){
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
   // To test this example, uncomment the following line:
-  await collection.updateOne({_id:changeEvent.fullDocument._id, "storeLocation":"East Appleton", "couponUsed":false}, {upsert:true});
+  await collection.insertOne({"storeLocation":changeEvent.fullDocument.storeLocation, "couponUsed":true});
 
   try {
-    findResults = await collection.find({_id: changeEvent.fullDocument._id});
+    findResults = await collection.find({storeLocation: changeEvent.fullDocument.storeLocation});
     return findResults;
   } catch(err) {
     console.log("Failed to find item: ", err.message);
