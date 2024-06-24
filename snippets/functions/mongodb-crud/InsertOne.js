@@ -1,4 +1,7 @@
 exports = async function (changeEvent) {
+
+  console.log(JSON.stringify(changeEvent));
+  
   var collection = context.services
     .get("mongodb-atlas")
     .db("sample_supplies")
