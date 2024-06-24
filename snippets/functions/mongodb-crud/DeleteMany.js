@@ -10,8 +10,9 @@ exports = async function(changeEvent){
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
   let deleteFilter;
-  
-  if (changeEvent == null) deleteFilter = {};
+
+  // Not passing in a changeEvent will delete **all** documents!!
+  if (changeEvent == {}) deleteFilter = {};
   else deleteFilter = { "storeLocation": changeEvent.fullDocument.storeLocation };
   
   try {
