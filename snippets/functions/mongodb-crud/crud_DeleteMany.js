@@ -9,7 +9,11 @@ exports = async function(changeEvent){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
-  const deleteFilter = { "storeLocation": changeEvent.fullDocument.storeLocation };
+  let deleteFilter;
+  
+  if (changeEvent == null) deleteFilter = {};
+  else deleteFilter = { "storeLocation": changeEvent.fullDocument.storeLocation };
+  
   try {
     deleteResult = await collection.deleteMany(deleteFilter);
     return deleteResult["deletedCount"];
@@ -36,14 +40,10 @@ exports({
   },
   documentKey: {
     storeLocation: 'East Appleton',
-    _id: {
-      "$oid": "62548f79e7f11292792497cc"
-    }
+    _id: "62548f79e7f11292792497cc"
   },
   fullDocument: {
-    _id: {
-      "$oid": "599af247bb69cd89961c986d"
-    },
+    _id: "599af247bb69cd89961c986d",
     storeLocation: 'East Appleton',
     couponUsed: false
   }
