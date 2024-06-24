@@ -9,11 +9,7 @@ exports = async function(changeEvent){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
-  let deleteFilter;
-
-  // Not passing in a changeEvent will delete **all** documents!!
-  if (changeEvent == {}) deleteFilter = {};
-  else deleteFilter = { "storeLocation": changeEvent.fullDocument.storeLocation };
+  const deleteFilter = { "storeLocation": changeEvent.fullDocument.storeLocation };
   
   try {
     deleteResult = await collection.deleteMany(deleteFilter);
