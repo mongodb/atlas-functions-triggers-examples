@@ -46,14 +46,10 @@ exports({
   },
   documentKey: {
     storeLocation: 'East Appleton',
-    _id: {
-      "$oid": "62548f79e7f11292792497cc"
-    }
+    _id: "62548f79e7f11292792497cc"
   },
   fullDocument: {
-    _id: {
-      "$oid": "599af247bb69cd89961c986d"
-    },
+    _id: "599af247bb69cd89961c986d",
     storeLocation: 'East Appleton',
     couponUsed: false
   }

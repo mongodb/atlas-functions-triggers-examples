@@ -10,7 +10,7 @@ exports = async function(changeEvent){
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
   // To test this example, uncomment the following line:
-  await collection.insertOne({"storeLocation":changeEvent.fullDocument.storeLocation, "couponUsed":true});
+  // await collection.insertOne({"storeLocation":changeEvent.fullDocument.storeLocation, "couponUsed":true});
 
   try {
     findResults = await collection.find({storeLocation: changeEvent.fullDocument.storeLocation});
