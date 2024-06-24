@@ -1,4 +1,6 @@
 exports = async function(changeEvent){
+  console.log(JSON.stringify(changeEvent));
+  
   // Find the name of the MongoDB service you want to use (see "Linked Data Sources" tab)
   var serviceName = "mongodb-atlas";
 
