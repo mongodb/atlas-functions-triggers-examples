@@ -5,7 +5,7 @@ exports = async function (changeEvent) {
     .collection("sales");
 
   // To test thia example, uncomment the following line:
-  // collection.insertOne({"storeLocation":"East Appleton","couponUsed":false})
+  // collection.updateOne({"storeLocation":"East Appleton","couponUsed":false})
 
   const query = { storeLocation: changeEvent.fullDocument.storeLocation };
   

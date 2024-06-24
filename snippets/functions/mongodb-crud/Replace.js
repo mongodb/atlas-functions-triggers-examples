@@ -5,12 +5,12 @@ exports = async function (changeEvent) {
     .collection("sales");
 
   // To test the above example, insert the following document into your collection:
-  // await collection.updateOne({_id:"599af247bb69cd89961c986d", "storeLocation":"East Appleton","couponUsed":false}, {upsert:false});
-  
-  const query = { _id: changeEvent._id._data };
+  await collection.insertOne({"storeLocation":"East Appleton","couponUsed":false}, {upsert:true});
+
+  const query = { storeLocation: changeEvent.fullDocument.storeLocation };
 
   const replacement = {
-    storeLocation: "East Appleton",
+    storeLocation: "Orangeville",
     couponUsed: false,
   };
 
@@ -43,7 +43,7 @@ exports({
     _id: "62548f79e7f11292792497cc"
   },
   fullDocument: {
-    _id: "599af247bb69cd89961c986d"
+    _id: "599af247bb69cd89961c986d",
     storeLocation: 'East Appleton'
   }
 })*/
