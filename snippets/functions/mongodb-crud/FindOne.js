@@ -8,8 +8,11 @@ exports = async function(changeEvent){
 
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
-  
-  const query = { "_id": new BSON.ObjectId(changeEvent._id._data) };
+
+  // To test this example, uncomment the following line:
+  // collection.updateOne({_id:"599af247bb69cd89961c986d", "storeLocation":"East Appleton", "couponUsed":false}, {upsert:true});
+
+  const query = { "_id": changeEvent._id._data };
 
   try {
     doc = await collection.findOne(query);
@@ -20,3 +23,34 @@ exports = async function(changeEvent){
     return { error: err.message };
   }
 };
+
+// In the Testing Console tab, paste the code below and click Run:
+/*
+exports({
+  _id: {_data: '599af247bb69cd89961c986d' },
+  operationType: 'insert',
+  clusterTime: {
+    "$timestamp": {
+      t: 1649712420,
+      i:6
+    }
+  },
+  ns: {
+    db: 'engineering',
+    coll: 'users'
+  },
+  documentKey: {
+    storeLocation: 'East Appleton',
+    _id: {
+      "$oid": "599af247bb69cd89961c986d"
+    }
+  },
+  fullDocument: {
+    _id: {
+      "$oid": "599af247bb69cd89961c986d"
+    },
+    storeLocation: 'East Appleton',
+    couponUsed: false
+  }
+});
+*/
