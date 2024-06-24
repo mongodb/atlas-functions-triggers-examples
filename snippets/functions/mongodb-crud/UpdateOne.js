@@ -4,8 +4,8 @@ exports = async function (changeEvent) {
     .db("sample_supplies")
     .collection("sales");
 
-  // To test this example, uncomment the following line:
-  // await collection.insertOne({"_id":"62548f79e7f11292792497cc","storeLocation":"East Appleton","couponUsed":false});
+   // To test this example, uncomment the following line:
+   // await collection.updateOne({"_id":changeEvent._id._data,"storeLocation":"East Appleton","couponUsed":false}, {upsert:true});
   
   const query = { _id: changeEvent._id._data };
 
@@ -15,7 +15,8 @@ exports = async function (changeEvent) {
   };
 
   try {
-    return await collection.updateOne(query, updateFields);
+    await collection.updateOne(query, updateFields);
+    return await collection.findOne(query);
   } catch (err) {
     console.log("Failed to update item: ", err.message);
     return { error: err.message };
@@ -42,7 +43,7 @@ exports({
     _id: "62548f79e7f11292792497cc"
   },
   fullDocument: {
-    _id: "599af247bb69cd89961c986d",
+    _id: "62548f79e7f11292792497cc",
     storeLocation: 'East Appleton',
     couponUsed: false
   }
