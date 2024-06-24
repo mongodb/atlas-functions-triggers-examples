@@ -4,6 +4,9 @@ exports = async function (changeEvent) {
     .db("sample_supplies")
     .collection("sales");
 
+  // To test this example, uncomment the following line:
+  // collection.insertOne({"_id": new BSON.ObjectId("62548f79e7f11292792497cc"),"storeLocation":"East Appleton","couponUsed":false});
+  
   const query = { _id: new BSON.ObjectId(changeEvent._id._data) };
 
   const updateFields = {
@@ -19,10 +22,7 @@ exports = async function (changeEvent) {
   }
 }
 
-// To test the above example, insert the following document into your collection:
-// {"_id":{"$oid":"62548f79e7f11292792497cc"},"storeLocation":"East Appleton","couponUsed":false}
-
-// Then, in the testing console paste the code below and click Run to test this mock change event against the example code
+// In the Testing Console tab, paste the code below and click Run:
 /*
 exports({
   _id: {_data: '62548f79e7f11292792497cc' },
@@ -38,7 +38,7 @@ exports({
     coll: 'users'
   },
   documentKey: {
-    userName: 'alice123',
+    storeLocation: 'East Appleton',
     _id: {
       "$oid": "62548f79e7f11292792497cc"
     }
@@ -47,7 +47,8 @@ exports({
     _id: {
       "$oid": "599af247bb69cd89961c986d"
     },
-    userName: 'alice123',
-    name: 'Alice'
+    storeLocation: 'East Appleton',
+    couponUsed: false
   }
-}*/
+})
+*/
