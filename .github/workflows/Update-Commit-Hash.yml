@@ -9,13 +9,23 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - name: 'Setup jq'
+        uses: dcarbone/install-jq-action@v2
+        with:
+          version: '${{ inputs.version }}'
+          force: '${{ inputs.force }}'
+      - id: validate_manifest
+        run: |
+          version=$(git log -1 --format='%H')
+          jq --arg v "${version}" '.version = $v' manifest.json > tempManifest.json
+          mv tempManifest.json manifest.json
       - uses: actions/checkout@v3
       - name: Update file with merge commit hash
         run: |
           git pull origin ${{ github.ref }}
-          git log -1 --format='%H' > latestCommit.md
           git config --global user.email "caleb.thompson@mongodb.com"
           git config --global user.name "ActionBot"
-          git add latestCommit.md
+          git add manifest.json
           git commit -m 'update commit hash'
           git push origin ${{ github.ref }}
