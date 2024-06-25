@@ -1,5 +1,8 @@
 {
-	"updateDescription.updatedFields": {
-		"status": "blocked"
-	}
+  "operationType": {
+    "$numberInt": "1"
+  },
+  "updateDescription.updateFields.storeLocation": {
+    "$numberInt": "1"
+  }
 }

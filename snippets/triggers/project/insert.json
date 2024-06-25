@@ -1,0 +1,14 @@
+{
+  "baseSalary": {
+    "$numberInt": "0"
+  },
+  "department": {
+    "$numberInt": "1"
+  },
+  "documentKey.userName": {
+    "$numberInt": "1"
+  },
+  "operationType": {
+    "$numberInt": "1"
+  }
+}

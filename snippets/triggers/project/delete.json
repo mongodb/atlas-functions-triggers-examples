@@ -1,8 +1,11 @@
 {
+  "documentKey._id": {
+    "$numberInt": "1"
+  },
   "operationType": {
     "$numberInt": "1"
   },
-  "updateDescription.updatedFields.FieldA": {
+  "wallTime": {
     "$numberInt": "1"
   }
 }

@@ -1,5 +1,4 @@
 {
-	"updateDescription.updatedFields": {
-		"status": "blocked"
-	}
+  "updateDescription.removedFields.0.0": "storeItems",
+  "updateDescription.updateFields.storeLocation.0.0": "East Langley"
 }
