@@ -9,7 +9,7 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: 'Setup jq'
         uses: dcarbone/install-jq-action@v2
         with:
@@ -22,10 +22,6 @@ jobs:
           jq --arg v "${version}" '.version = $v' manifest.json > tempManifest.json
           mv tempManifest.json manifest.json
           jq '.version' manifest.json
-          git diff manifest.json
-      - uses: actions/checkout@v3
-      - name: Update file with merge commit hash
-        run: |
           git pull origin ${{ github.ref }}
           git config --global user.email "caleb.thompson@mongodb.com"
           git config --global user.name "ActionBot"
