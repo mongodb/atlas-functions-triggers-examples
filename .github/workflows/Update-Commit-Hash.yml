@@ -18,8 +18,11 @@ jobs:
       - id: validate_manifest
         run: |
           version=$(git log -1 --format='%H')
+          jq '.version' manifest.json
           jq --arg v "${version}" '.version = $v' manifest.json > tempManifest.json
           mv tempManifest.json manifest.json
+          jq '.version' manifest.json
+          git diff manifest.json
       - uses: actions/checkout@v3
       - name: Update file with merge commit hash
         run: |
