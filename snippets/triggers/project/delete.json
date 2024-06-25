@@ -1,8 +1,11 @@
 {
+  "documentKey._id": {
+    "$numberInt": "1"
+  },
   "operationType": {
     "$numberInt": "1"
   },
-  "updateDescription.updateFields.storeLocation": {
+  "wallTime": {
     "$numberInt": "1"
   }
 }
