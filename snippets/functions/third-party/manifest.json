@@ -24,25 +24,25 @@
     {
       "id": "fdf44706-adbe-4880-87b5-e9c28f6110af",
       "title": "Using AWS SES dependency",
-      "snippets": "/awsSES.js",
+      "snippet": "/awsSES.js",
       "description": "Sending an email with AWS SES. To authenticate with the AWS client, store your AccessKeyID and SecretAccessKey as values. Note: This is using AWS SDK v3."
     },
     {
       "id": "fdf44706-adbe-4880-87b5-e9c28f6110ag",
       "title": "Using AWS Kinesis dependency",
-      "snippets": "/awsKinesis.js",
+      "snippet": "/awsKinesis.js",
       "description": "Retrieving stream details with AWS Kinesis. To authenticate with the AWS client, store your AccessKeyID and SecretAccessKey as values. Note: This is using AWS SDK v3."
     },
     {
       "id": "fdf44706-adbe-4880-87b5-e9c28f6110aa",
       "title": "Retrieving from AWS S3 bucket",
-      "snippets": "/awsS3GetObject.js",
+      "snippet": "/awsS3GetObject.js",
       "description": "Retrieving from AWS S3 bucket with the bucket name and key. To authenticate with the AWS client, store your AccessKeyID and SecretAccessKey as values. Note: This is using AWS SDK v3."
     },
     {
       "id": "fdf44706-adbe-4880-87b5-e9c28f6110ab",
       "title": "Putting object in AWS S3 bucket",
-      "snippets": "/awsS3PutObject.js",
+      "snippet": "/awsS3PutObject.js",
       "description": "Putting an object into AWS S3 bucket with the bucket name and key. To authenticate with the AWS client, store your AccessKeyID and SecretAccessKey as values. Note: This is using AWS SDK v3."
     }
   ]
