@@ -11,12 +11,12 @@ exports = async function () {
     region: "us-east-1",
     maxAttempts: 5,
   });
-  const params = {
-    StreamName: "myStreamName",
-  };
 
   // see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kinesis/ for more commands
-  const describeStreamCommand = new DescribeStreamCommand(params);
+  const describeStreamCommand = new DescribeStreamCommand({
+    StreamName: "myStreamName",
+  });
+
   try {
     const data = await kinesisClient.send(describeStreamCommand);
     return data.StreamDescription.StreamName;

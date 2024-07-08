@@ -20,7 +20,7 @@ exports = async function () {
   });
   try {
     const data = await s3Client.send(putObjectCommand);
-    return data !== null && data.ETag !== "";
+    return data;
   } catch (error) {
     return error;
   }

@@ -43,7 +43,7 @@
       "id": "fdf44706-adbe-4880-87b5-e9c28f6110ab",
       "title": "Putting object in AWS S3 bucket",
       "snippet": "/awsS3PutObject.js",
-      "description": "Putting an object into AWS S3 bucket with the bucket name and key. To authenticate with the AWS client, store your AccessKeyID and SecretAccessKey as values. Note: This is using AWS SDK v3."
+      "description": "Uploads an object to an AWS S3 bucket using the specified bucket name and key. Authentication requires your AWS AccessKeyID, SecretAccessKey and BucketKey, all of which should be stored as values. This operation uses AWS SDK v3."
     }
   ]
 }
