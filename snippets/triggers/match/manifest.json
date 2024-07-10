@@ -17,7 +17,7 @@
         },
         {
             "id": "ed4b3598-6800-413f-9158-d9b1b2a2a083",
-            "title": "Match Expression for Deletes",
+            "title": "Match Expression for Inserts",
             "snippet": "/insert.json",
             "description": "This trigger will only execute if the document has a userName of \"Alice Smith\" and a department of \"engineering\""
         },

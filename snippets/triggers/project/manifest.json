@@ -17,7 +17,7 @@
         },
         {
             "id": "e040947b-08a4-4a8f-9f82-1bccd7826892",
-            "title": "Project Expression for Deletes",
+            "title": "Project Expression for Inserts",
             "snippet": "/insert.json",
             "description": "This trigger will return the \"baseSalary\", \"department\", \"operationType\", and \"documentKey.userName\" field values."
         },
