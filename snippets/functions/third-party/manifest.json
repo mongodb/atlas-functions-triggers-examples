@@ -5,9 +5,45 @@
   "snippets": [
     {
       "id": "e5450427-8503-4e1a-aac3-03e5e39e8f8e",
-      "title": "Calling Twilio service via NPM dependency",
+      "title": "Calling Twilio service",
       "snippet": "/twilio.js",
       "description": "Calling the Twilio service with the official Twilio Node Helper Library. To authenticate Twilio requests, store your Account SID and Auth Token as values. You can then access them within functions and pass them to the SDK."
+    },
+    {
+      "id": "b1b777e1-0747-46dc-bf4e-0f3ddb7244cd",
+      "title": "Using axios dependency",
+      "snippet": "/axios.js",
+      "description": "Making HTTP requests with axios npm dependency."
+    },
+    {
+      "id": "3c0e06b6-313e-4321-8794-47b53d66e961",
+      "title": "Using node-fetch dependency",
+      "snippet": "/nodeFetch.js",
+      "description": "Making HTTP requests with node-fetch dependency. Atlas App Services does not support v3 of node-fetch, use v2 instead."
+    },
+    {
+      "id": "fdf44706-adbe-4880-87b5-e9c28f6110af",
+      "title": "Using AWS SES dependency",
+      "snippet": "/awsSES.js",
+      "description": "Sending an email with AWS SES. To authenticate with the AWS client, store your AccessKeyID and SecretAccessKey as values. Note: This is using AWS SDK v3."
+    },
+    {
+      "id": "fdf44706-adbe-4880-87b5-e9c28f6110ag",
+      "title": "Using AWS Kinesis dependency",
+      "snippet": "/awsKinesis.js",
+      "description": "Retrieving stream details with AWS Kinesis. To authenticate with the AWS client, store your AccessKeyID and SecretAccessKey as values. Note: This is using AWS SDK v3."
+    },
+    {
+      "id": "fdf44706-adbe-4880-87b5-e9c28f6110aa",
+      "title": "Retrieving from AWS S3 bucket",
+      "snippet": "/awsS3GetObject.js",
+      "description": "Retrieving from AWS S3 bucket with the bucket name and key. To authenticate with the AWS client, store your AccessKeyID and SecretAccessKey as values. Note: This is using AWS SDK v3."
+    },
+    {
+      "id": "fdf44706-adbe-4880-87b5-e9c28f6110ab",
+      "title": "Putting object in AWS S3 bucket",
+      "snippet": "/awsS3PutObject.js",
+      "description": "Uploads an object to an AWS S3 bucket using the specified bucket name and key. Authentication requires your AWS AccessKeyID, SecretAccessKey and BucketKey, all of which should be stored as values. This operation uses AWS SDK v3."
     }
   ]
 }

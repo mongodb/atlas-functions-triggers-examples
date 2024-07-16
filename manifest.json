@@ -1,22 +1,23 @@
 {
-    "snippetCategories": [
-        {
-        "metadata": "/snippets/functions/third-party/manifest.json"
-        },
-        {
-        "metadata": "/snippets/functions/mongodb-crud/manifest.json"
-        },
-        {
-        "metadata": "/snippets/functions/api-functions/manifest.json"
-        },
-        {
-        "metadata": "/snippets/functions/function-context/manifest.json"
-        },
-        {
-        "metadata": "/snippets/triggers/match/manifest.json"
-        },
-        {
-        "metadata": "/snippets/triggers/project/manifest.json"
-        }
-    ]
+  "snippetCategories": [
+    {
+      "metadata": "/snippets/functions/third-party/manifest.json"
+    },
+    {
+      "metadata": "/snippets/functions/mongodb-crud/manifest.json"
+    },
+    {
+      "metadata": "/snippets/functions/api-functions/manifest.json"
+    },
+    {
+      "metadata": "/snippets/functions/function-context/manifest.json"
+    },
+    {
+      "metadata": "/snippets/triggers/match/manifest.json"
+    },
+    {
+      "metadata": "/snippets/triggers/project/manifest.json"
+    }
+  ],
+  "version": "d2de28d9e0967f028b5e02fd70359c7d69b87ece"
 }

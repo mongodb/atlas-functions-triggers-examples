@@ -9,29 +9,46 @@ and a push to `main` uploads to the `production` directory.
 
 For bucket access, consult the Developer Docs team.
 
-## Add Function and Trigger Snippets
+## Adding Function and Trigger Snippets
 
 The Developer Docs team maintains these code snippets as tested examples.
-Adding a new snippet involves:
+When you add a new function, be sure to:
 
-1. Adding a Function or Trigger to the Atlas backend (ask Dev Docs for details 
-   and access).
-2. Adding a relevant test for the Function or Trigger to the test suite. Refer to 
-   the README in the `test/integration` directory for more details.
-3. Exporting or pulling the Atlas backend with your Function or Trigger, and adding 
-   the relevant file(s) to this repository's `backend`.
-4. Running the Bluehawk script in the `tools` directory to copy the files from the 
-   backend into the `snippets` files that get uploaded to S3.
-5. Adding a metadata file to the `metadata` directory with a title and other 
-   relevant details based on the type of snippet you're adding.
+1. Add a Function or Trigger to the Atlas backend (ask Dev Docs for details 
+   and access). Follow these rules when creating a function or trigger:
 
-Details about filenames and metadata schema will be added to this repository
-after the spec is finalized.
+   - Function names **must** start with their type, which is one of `api_`, 
+     `crud_`, or `context_`. 
+   - Functions must be tested within the AAS app.
+   - Triggers should use the "fake_function_for_expressions" 
+     function, since we're only creating triggers to extract the ``match`` and ``project`` stages and  nothing function-related. Following this rule means we don't end up with any additional functions in the repo.
 
-If you are not a member of the Bushicorp org, create your own test app to test 
-the Function or Trigger, and the Developer Docs team will import your Function 
-or Trigger into the org test app as part of your PR. You can use the `backend`
-in this repository to create your own test app that should run the entire test
-suite successfully.
+2. Deploy your changes. This will automatically push the changes to the *source* repo, where github actions will remove function name prefixes, extract the ``match`` and ``project`` json from the triggers, and then copy the functions and expressions to this repo.
 
-<!-- TODO: Add more details about the repo structure and its purpose -->
+3. Update the `manifest.json` file in the correct subfolder (snippets/functions/crud, for example) with your new function. Be sure to generate a new uuid for the `id` field. 
+
+4. Add a relevant test for the function or trigger to the test suite. Refer to the README in the `test/integration` directory for more details.
+
+## Adding a New Function Category
+
+If we decide we need a type of function beyond CRUD, function context, third-party integration, and API calls, do the following:
+
+1. Coordinate with dev and product for naming the new `viewType` and subfolder.
+2. Create the new subfolder that will contain these functions.
+3. Copy an existing `manifest.json` file from one of the other function types and update it with the following:
+   a. The new `viewType`
+   b. The new snippets. Even if there is only 1 new snippet, be sure it is in an array.
+4. In the `atlas-functions-triggers-source` repo, you **must** update the `/.github/workflows/Copy-Functions-to-Examples-Repo.yml` action to copy the new category functions. Each function category has a section in the github action that looks like this:
+```
+ - name: Copy API Functions
+        uses: MongoCaleb/copy-push-files@main
+        env:
+          API_TOKEN_GITHUB: "${{ secrets.API_TOKEN_GITHUB }}"
+        with:
+          source_files: ./functions/api_*
+          remote_repository: https://github.com/mongodb/atlas-functions-triggers-examples
+          target_dir: "snippets/functions/api-functions/"
+          target_branch: "development"
+          access_token:  "${{ secrets.API_TOKEN_GITHUB }}"
+   ```
+Copy one of these sections and change the `source_files`, `target_dir` values.

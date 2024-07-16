@@ -1,0 +1,11 @@
+{
+  "fullDocument.name": {
+    "$numberInt": "1"
+  },
+  "fullDocumentBeforeChange.name": {
+    "$numberInt": "1"
+  },
+  "operationType": {
+    "$numberInt": "1"
+  }
+}
