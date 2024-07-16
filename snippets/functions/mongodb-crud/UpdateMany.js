@@ -4,7 +4,7 @@ exports = async function (changeEvent) {
     .db("sample_supplies")
     .collection("sales");
 
-  // To test thia example, uncomment the following line:
+  // To test this example, uncomment the following line:
   // collection.updateOne({"storeLocation":"East Appleton","couponUsed":false})
 
   const query = { storeLocation: changeEvent.fullDocument.storeLocation };
