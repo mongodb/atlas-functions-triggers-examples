@@ -5,19 +5,19 @@
   "snippets": [
     {
       "id": "ed4b3598-6800-413f-9158-d9b1b2a2a081",
-      "title": "Updates",
+      "title": "Update",
       "snippet": "/update.json",
       "description": "This trigger will only execute if the `storeLocation` array has changed to \"East Langley\" and the \"storeItems\" field has been removed."
     },
     {
       "id": "ed4b3598-6800-413f-9158-d9b1b2a2a082",
-      "title": "Deletes",
+      "title": "Delete",
       "snippet": "/delete.json",
       "description": "This trigger will only execute if the document (before deletion) has a userName of \"Alice Smith\""
     },
     {
       "id": "ed4b3598-6800-413f-9158-d9b1b2a2a083",
-      "title": "Inserts",
+      "title": "Insert",
       "snippet": "/insert.json",
       "description": "This trigger will only execute if the document has a userName of \"Alice Smith\" and a department of \"engineering\""
     },

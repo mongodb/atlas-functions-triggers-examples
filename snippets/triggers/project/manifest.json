@@ -5,19 +5,19 @@
   "snippets": [
     {
       "id": "7dd66555-8efb-4a76-8920-64c0874e0214",
-      "title": "Updates",
+      "title": "Update",
       "snippet": "/update.json",
       "description": "This trigger will return the \"operationType\" and \"updateDescription.updateFields.storeLocation\" field values."
     },
     {
       "id": "7c9b14f4-30ec-4865-b153-8bd52c6566ad",
-      "title": "Deletes",
+      "title": "Delete",
       "snippet": "/delete.json",
       "description": "This trigger will return the \"documentKey._id\", \"operationType\", and \"wallTime\" field values."
     },
     {
       "id": "e040947b-08a4-4a8f-9f82-1bccd7826892",
-      "title": "Inserts",
+      "title": "Insert",
       "snippet": "/insert.json",
       "description": "This trigger will return the \"baseSalary\", \"department\", \"operationType\", and \"documentKey.userName\" field values."
     },
