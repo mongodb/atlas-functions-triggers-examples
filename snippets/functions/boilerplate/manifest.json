@@ -1,0 +1,31 @@
+{
+  "category": "Boilerplate Template by Function Type",
+  "categoryId": "4756072f-b3c7-4469-b038-cdf6b346789c",
+  "viewType": "functionSnippet",
+  "snippets": [
+    {
+      "id": "7c84ed29-b8b2-466c-af3d-c240889d3112",
+      "title": "Database Trigger",
+      "snippet": "/databaseTrigger.js",
+      "description": "Example shows a template for a DB trigger function, which always accepts a changeEvent as an argument."
+    },
+    {
+      "id": "ba6113d7-5e52-48e4-8ab4-03df30c0d61a",
+      "title": "Scheduled Trigger",
+      "snippet": "/scheduledTrigger.js",
+      "description": "Shows an example of a Scheduled Trigger function, which will always call a function without arguments."
+    },
+    {
+      "id": "1dca4a58-c150-4a8e-b602-9edf5c338f3d",
+      "title": "General Function",
+      "snippet": "/generalFunction.js",
+      "description": "Example of a default function that will get a value and find a document in MongoDB, the parameters passed in the header differ from other templates."
+    },
+    {
+      "id": "b43b9abb-dde7-4389-880e-38ef995d501a",
+      "title": "Eventbridge Custom Error Function",
+      "snippet": "/eventbridgeErrorFunction.js",
+      "description": "Example of a custom error function, which takes in the error and changeEvent as arguments."
+    }
+  ]
+}
