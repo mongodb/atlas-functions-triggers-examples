@@ -4,24 +4,24 @@ exports = async function (arg) {
   // https://www.mongodb.com/docs/atlas/app-services/functions/
 
   // Find the name of the MongoDB service you want to use (see "Linked Data Sources" tab)
-  var serviceName = "mongodb-atlas";
+  const serviceName = "mongodb-atlas";
 
   // Update these to reflect your db/collection
-  var dbName = "db_name";
-  var collName = "coll_name";
+  const dbName = "db_name";
+  const collName = "coll_name";
 
   // Get a collection from the context
-  var collection = context.services
+  const collection = context.services
     .get(serviceName)
     .db(dbName)
     .collection(collName);
 
-  var findResult;
+  let findResult;
   try {
     // Get a value from the context (see "Values" tab)
     // Update this to reflect your value's name.
-    var valueName = "value_name";
-    var value = context.values.get(valueName);
+    const valueName = "value_name";
+    const value = context.values.get(valueName);
 
     // Execute a FindOne in MongoDB
     findResult = await collection.findOne({
@@ -36,7 +36,7 @@ exports = async function (arg) {
   }
 
   // To call other named functions:
-  // var result = context.functions.execute("function_name", arg1, arg2);
+  // const result = context.functions.execute("function_name", arg1, arg2);
 
   return { result: findResult };
 };
