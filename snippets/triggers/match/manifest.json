@@ -1,31 +1,31 @@
 {
-    "category": "MatchTriggerExpressions",
-    "categoryId": "ed4b3598-6800-413f-9158-d9b1b2a2a080",
-    "viewType": "triggerMatch",
-    "snippets": [
-        {
-            "id": "ed4b3598-6800-413f-9158-d9b1b2a2a081",
-            "title": "Match Expression for Updates",
-            "snippet": "/update.json",
-            "description": "This trigger will only execute if the `storeLocation` array has changed to \"East Langley\" and the \"storeItems\" field has been removed."
-        },
-        {
-            "id": "ed4b3598-6800-413f-9158-d9b1b2a2a082",
-            "title": "Match Expression for Deletes",
-            "snippet": "/delete.json",
-            "description": "This trigger will only execute if the document (before deletion) has a userName of \"Alice Smith\""
-        },
-        {
-            "id": "ed4b3598-6800-413f-9158-d9b1b2a2a083",
-            "title": "Match Expression for Inserts",
-            "snippet": "/insert.json",
-            "description": "This trigger will only execute if the document has a userName of \"Alice Smith\" and a department of \"engineering\""
-        },
-        {
-            "id": "ed4b3598-6800-413f-9158-d9b1b2a2a084",
-            "title": "Match Expression for Replace",
-            "snippet": "/replace.json",
-            "description": "This trigger will only execute if the name field was \"Alice Smith\" before the Replace, and \"Alex Smith\" after the Replace."
-        }
-    ]
+  "category": "MatchTriggerExpressions",
+  "categoryId": "ed4b3598-6800-413f-9158-d9b1b2a2a080",
+  "viewType": "triggerMatch",
+  "snippets": [
+    {
+      "id": "ed4b3598-6800-413f-9158-d9b1b2a2a081",
+      "title": "Update",
+      "snippet": "/update.json",
+      "description": "This trigger will only execute if the `storeLocation` array has changed to \"East Langley\" and the \"storeItems\" field has been removed."
+    },
+    {
+      "id": "ed4b3598-6800-413f-9158-d9b1b2a2a082",
+      "title": "Delete",
+      "snippet": "/delete.json",
+      "description": "This trigger will only execute if the document (before deletion) has a userName of \"Alice Smith\""
+    },
+    {
+      "id": "ed4b3598-6800-413f-9158-d9b1b2a2a083",
+      "title": "Insert",
+      "snippet": "/insert.json",
+      "description": "This trigger will only execute if the document has a userName of \"Alice Smith\" and a department of \"engineering\""
+    },
+    {
+      "id": "ed4b3598-6800-413f-9158-d9b1b2a2a084",
+      "title": "Replace",
+      "snippet": "/replace.json",
+      "description": "This trigger will only execute if the name field was \"Alice Smith\" before the Replace, and \"Alex Smith\" after the Replace."
+    }
+  ]
 }
