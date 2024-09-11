@@ -4,6 +4,9 @@
       "metadata": "/snippets/functions/third-party/manifest.json"
     },
     {
+      "metadata": "/snippets/functions/boilerplate/manifest.json"
+    },
+    {
       "metadata": "/snippets/functions/mongodb-crud/manifest.json"
     },
     {
@@ -19,5 +22,5 @@
       "metadata": "/snippets/triggers/project/manifest.json"
     }
   ],
-  "version": "33962567db27d1f4ec53ce4b3813b0dc8754f632"
+  "version": "7bd6521bcefa9ffb7dcfb7ad653044950d6027d1"
 }
