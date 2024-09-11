@@ -1,9 +1,9 @@
-name: Zip and Upload to S3 for Development
+name: Zip and Upload to S3 for Production
 
 on:
   push:
     branches:
-      - production
+      - main
 
 jobs:
   deploy-after-testing:
