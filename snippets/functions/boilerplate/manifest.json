@@ -7,7 +7,7 @@
       "id": "7c84ed29-b8b2-466c-af3d-c240889d3112",
       "title": "Database Trigger",
       "snippet": "/databaseTrigger.js",
-      "description": "Example shows a template for a DB trigger function, which always accepts a changeEvent as an argument."
+      "description": "Example shows a template for a Database Trigger function, which always accepts a changeEvent as an argument."
     },
     {
       "id": "ba6113d7-5e52-48e4-8ab4-03df30c0d61a",
