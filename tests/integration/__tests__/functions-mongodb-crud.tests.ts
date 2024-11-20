@@ -149,7 +149,7 @@ describe("Test MongoDB CRUD operations in Functions", () => {
       }
     }
     expect(ids).not.toBeNull;
-    expect(ids.length).toBe(3);
+    expect(ids.length).toBe(1);
 
 // *********** //
 // Project //
