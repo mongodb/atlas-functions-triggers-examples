@@ -2,7 +2,7 @@
   "operationType": {
     "$numberInt": "1"
   },
-  "updateDescription.updateFields.storeLocation": {
+  "updateDescription.updatedFields.storeLocation": {
     "$numberInt": "1"
   }
 }
