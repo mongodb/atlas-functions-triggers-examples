@@ -7,7 +7,7 @@
       "id": "ed4b3598-6800-413f-9158-d9b1b2a2a081",
       "title": "Update",
       "snippet": "/update.json",
-      "description": "This trigger will only execute if the `storeLocation` array has changed to \"East Langley\" and the \"storeItems\" field has been removed."
+      "description": "This trigger will execute if the `storeLocation` array is updated to include \"East Langley\", the \"storeItems\" field has been removed, and the status field is updated to \"updated\""
     },
     {
       "id": "ed4b3598-6800-413f-9158-d9b1b2a2a082",
