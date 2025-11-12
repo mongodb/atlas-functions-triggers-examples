@@ -16,7 +16,7 @@ jobs:
           REPO_NAME: ${{ github.repository }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         run: |
-          # Build the message and payload in one step
+          # Build the message and payload in one step 
           SLACK_PAYLOAD=$(jq -n \
             --arg repo "$REPO_NAME" \
             --arg title "$PR_TITLE" \
