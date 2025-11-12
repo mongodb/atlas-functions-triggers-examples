@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Send Slack Notification
         env:
-          # Use the correct 'pull_request' context
+          # Use the correct 'pull_request' context 
           PR_TITLE: ${{ github.event.pull_request.title }}
           PR_USER: ${{ github.event.pull_request.user.login }}
           PR_URL: ${{ github.event.pull_request.html_url }}
