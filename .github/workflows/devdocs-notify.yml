@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check for new PR or issues
-        uses: actions/github-script@v7
         env:
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_USER: ${{ github.event.issue.user.login }}
@@ -28,7 +27,7 @@ jobs:
           SLACK_PAYLOAD=$(jq -n \
             --arg text "$MESSAGE_TEXT" \
             '{
-              "channel": "#docs-devdocs-notifications",
+              "channel": "#docs-devdocs-notifications", 
               "username": "Issue Notifier",
               "icon_emoji": ":mega:",
               "text": $text
